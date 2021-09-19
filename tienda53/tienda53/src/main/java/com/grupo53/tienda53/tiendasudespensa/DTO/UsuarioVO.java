@@ -1,8 +1,8 @@
-package com.grupo53.demo.tiendasudespensa.DTO;
+package com.grupo53.tienda53.tiendasudespensa.DTO;
 
 import java.io.Serializable;
 
-public class UsuarioVO implements Serializable {
+public class UsuarioVO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -11,6 +11,8 @@ public class UsuarioVO implements Serializable {
 	private String nombre_usuario;
 	private String password;
 	private String usuario;
+	
+	
 	
 	/**
 	 * @return the cedula_usuario
@@ -72,5 +74,10 @@ public class UsuarioVO implements Serializable {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }
