@@ -11,7 +11,7 @@
 	 crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	 crossorigin="anonymous">
-	<link href="csslistausuarios.css" rel="stylesheet" type="text/css" />
+	<link href="clistusuarios.css" rel="stylesheet" type="text/css" />
 
   <script>
 	var baseurl = "http://localhost:8080/listarusuarios";
@@ -65,7 +65,7 @@
     <div class="collapse navbar-collapse container-fluid div-navbar" id="navbarNavAltMarkup">
       <div class="navbar-nav">
        <a class="navbar-brand" href="listausuarios.jsp"><i class="fas fa-users icon-nav"></i>Usuarios</a>
-       <a class="navbar-brand" href="#"><i class="far fa-address-card icon-nav"></i>Clientes</a>
+       <a class="navbar-brand" href="listaclientes.jsp"><i class="far fa-address-card icon-nav"></i>Clientes</a>
        <a class="navbar-brand" href="#"><i
 				class="fas fa-truck icon-nav"></i>Proveedores</a>
        <a class="navbar-brand" href="#"><i class="fas fa-box-open icon-nav"></i>Productos</a>

@@ -11,7 +11,7 @@
 	 crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	 crossorigin="anonymous">
-	<link href="csslistausuarios.css" rel="stylesheet" type="text/css" />
+	<link href="cinsertar.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse container-fluid div-navbar" id="navbarNavAltMarkup">
       <div class="navbar-nav">
        <a class="navbar-brand" href="listausuarios.jsp"><i class="fas fa-users icon-nav"></i>Usuarios</a>
-       <a class="navbar-brand" href="#"><i class="far fa-address-card icon-nav"></i>Clientes</a>
+       <a class="navbar-brand" href="listaclientes.jsp"><i class="far fa-address-card icon-nav"></i>Clientes</a>
        <a class="navbar-brand" href="#"><i
 				class="fas fa-truck icon-nav"></i>Proveedores</a>
        <a class="navbar-brand" href="#"><i class="fas fa-box-open icon-nav"></i>Productos</a>
@@ -73,15 +73,15 @@
 
 <div class="card-buttons">
 
-          <button type="button" class="btn btn-success btn-card" onclick="window.location.href='/insertarusuario.jsp'">
+          <button type="button" class="btn btn-success btn-card-footer" onclick="window.location.href='/insertarusuario.jsp'">
 					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger btn-card">
+					<button type="button" class="btn btn-danger btn-card-footer">
 					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning btn-card">
+					<button type="button" class="btn btn-warning btn-card-footer">
 					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary btn-card">
+					<button type="button" class="btn btn-primary btn-card-footer">
 					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-info btn-card" onclick="window.location.href='/listausuarios.jsp'">
+					<button type="button" class="btn btn-info btn-card-footer" onclick="window.location.href='/listausuarios.jsp'">
 					<i class="fas fa-clipboard-list" ></i> Listar todos los usuarios</button>
 </div>
 
@@ -101,13 +101,13 @@
 			for (i = 0; i < usuarios.length; i++) {
 				console.log(usuarios[i].usuario);
 				console.log(usuarios[i].cedula_usuario);
-				if (usuarios[i].usuario ===x ) {
+				if (usuarios[i].usuario ==x ) {
 					console.log(usuarios[i].usuario +" "+x);	
 					coincidencia =true
 					break;
 				}
 				
-				if (usuarios[i].cedula_usuario ===y ) {
+				if (usuarios[i].cedula_usuario ==y ) {
 					console.log(usuarios[i].cedula_usuario +" "+y);	
 					coincidencia =true
 					break;
