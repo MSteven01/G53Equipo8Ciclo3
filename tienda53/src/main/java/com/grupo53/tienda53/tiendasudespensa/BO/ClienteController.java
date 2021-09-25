@@ -40,15 +40,15 @@ public class ClienteController {
 		return Dao.listaDeClientes();
 	}
 	@DeleteMapping("/eliminarclientes")
-	public void eliminarUsuario(Integer cedula_cliente) {
+	public void eliminarCliente(Integer cedula_cliente) {
 		ClienteDAO Dao = new ClienteDAO();
 		Dao.eliminarCliente(cedula_cliente);
 	}
 	
 	@PutMapping("/actualizarcliente")
-	public void actualizarUsuario(ClienteVO nombre_cliente) {
+	public void actualizarCliente(ClienteVO nombre_cliente) {
 		ClienteDAO Dao = new ClienteDAO();
-		Dao.registrarCliente(nombre_cliente);
+		Dao.actualizarCliente(nombre_cliente);
 	}
 	
 	
