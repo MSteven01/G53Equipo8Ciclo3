@@ -62,8 +62,8 @@
 
  <form action="form1">
  
- <span class="input-group-text" id="basic-addon4">Ingrese usuario a buscar.</span> 
- <input	type="text" class="form-control" placeholder="Inserte username aqui..."	aria-describedby="basic-addon4" required id="usersearch" >
+ <span class="input-group-text btn-card" id="basic-addon4">Ingrese usuario a buscar.</span> 
+ <input	type="text" class="form-control form" aria-describedby="basic-addon4" required id="usersearch" >
   <span class="input-group-text btn-card" id="inputGroup-sizing-default">Cedula</span>
   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="cedula_usuario" required disabled="disabled">
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">E-mail</span>
@@ -76,7 +76,7 @@
   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="password" disabled="disabled">
 </form>
  <button type="button" class="btn btn-primary btn-card-enviar" onclick="enviar()">
-<i class="fas fa-check"></i> Buscar Usuario
+<i class="fas fa-search"></i> Buscar Usuario
 </button>
 </div>
 				
