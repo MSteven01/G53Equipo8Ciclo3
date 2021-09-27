@@ -92,13 +92,13 @@
 <div class="card-buttons">
           <button type="button" class="btn btn-success btn-card" onclick="window.location.href='/insertarclientes.jsp'">
 					<i class="fas fa-plus-circle"></i> Agregar cliente</button>
-					<button type="button" class="btn btn-danger btn-card">
+					<button type="button" class="btn btn-danger btn-card" onclick="window.location.href='/eliminarcliente.jsp'">
 					<i class="fas fa-trash"></i> Eliminar cliente</button>
 					<button type="button" class="btn btn-warning btn-card">
 					<i class="fas fa-pen-alt"></i> Actualizar cliente</button>
-					<button type="button" class="btn btn-primary btn-card">
+					<button type="button" class="btn btn-primary btn-card" onclick="window.location.href='/buscarcliente.jsp'">
 					<i class="fas fa-search"></i> Buscar un cliente</button>
-					<button type="button" class="btn btn-info btn-card">
+					<button type="button" class="btn btn-info btn-card" onclick="window.location.href='/listaclientes.jsp'">
 					<i class="fas fa-clipboard-list"></i> Listar todos los cliente</button>
 </div>
 
