@@ -46,9 +46,9 @@ public class ClienteController {
 	}
 	
 	@PutMapping("/actualizarcliente")
-	public void actualizarCliente(ClienteVO nombre_cliente) {
+	public void actualizarCliente(ClienteVO cedula_cliente) {
 		ClienteDAO Dao = new ClienteDAO();
-		Dao.actualizarCliente(nombre_cliente);
+		Dao.actualizarCliente(cedula_cliente);
 	}
 	
 	
