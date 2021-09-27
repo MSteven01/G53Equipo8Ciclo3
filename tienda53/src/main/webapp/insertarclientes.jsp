@@ -71,19 +71,19 @@
 </div>
 
 
-<div class="card-buttons">
+	<div class="card-buttons">
 
           <button type="button" class="btn btn-success btn-card-footer" onclick="window.location.href='/insertarclientes.jsp'">
 					<i class="fas fa-plus-circle"></i> Agregar cliente</button>
-					<button type="button" class="btn btn-danger btn-card-footer" onclick="window.location.href='/eliminarcliente.jsp'" >
+					<button type="button" class="btn btn-danger btn-card-footer" onclick="window.location.href='/eliminarcliente.jsp'">
 					<i class="fas fa-trash"></i> Eliminar cliente</button>
 					<button type="button" class="btn btn-warning btn-card-footer">
 					<i class="fas fa-pen-alt"></i> Actualizar cliente</button>
-					<button type="button" class="btn btn-primary btn-card-footer">
+					<button type="button" class="btn btn-primary btn-card-footer" onclick="window.location.href='/buscarcliente.jsp'">
 					<i class="fas fa-search"></i> Buscar un cliente</button>
 					<button type="button" class="btn btn-info btn-card-footer" onclick="window.location.href='/listaclientes.jsp'">
-					<i class="fas fa-clipboard-list" ></i> Listar todos los cliente</button>
-</div>
+					<i class="fas fa-clipboard-list" ></i> Listar todos los clientes</button>
+	</div>
 
 <script>
 		function enviar() {

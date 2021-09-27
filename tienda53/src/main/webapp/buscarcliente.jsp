@@ -15,6 +15,8 @@
 
 
 <body>
+
+
 <header>
  <nav class="navbar navbar-dark bg-dark navbar-expand-lg border-nav">
     <div class="container-fluid div-navbar">
@@ -24,10 +26,8 @@
     </a>
     </div>
   </nav>
-
 	<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
   <div class="container-fluid">
-    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -48,33 +48,41 @@
 </header>
 
 
-	<div class="card-login">
-		<h1>Eliminar Cliente</h1>
-
-
-			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al eliminar el cliente, verifique que 
-				exista un cliente con la cedula dada</div>
-
-
-			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">Cliente eliminado con exito</div>
 
 
 
-			<form id="form1">
-			
 				
-					<span class="input-group-text btn-card" id="inputGroup-sizing-default">Cedula</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="cedula_cliente" required>
 				
+				
+<div class="card-login">
+<h1>Buscar Clientes</h1>
 
-			</form>
+<div id="error" class="alert alert-danger visually-hidden" role="alert">Error al buscar el cliente, el cliente no existe</div>
+<div id="correcto" class="alert alert-success visually-hidden" role="alert">Cliente encontrado con exito</div>
 
-			<button type="button" class="btn btn-danger btn-card-enviar" onclick="eliminar()">
-				<i class="fas fa-skull-crossbones"></i> Eliminar Cliente
-			</button>
+ <form action="form1">
+ 
+ <span class="input-group-text" id="basic-addon4">Ingrese cliente a buscar.</span> 
+ <input	type="text" class="form-control" placeholder="Inserte cedula aqui..."	aria-describedby="basic-addon4" required id="cedula_buscar" >
+  <span class="input-group-text btn-card" id="inputGroup-sizing-default">Cedula</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="cedula_cliente" required disabled="disabled">
+   <span class="input-group-text btn-card" id="inputGroup-sizing-default">Direccion</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="direccion_cliente" required disabled="disabled">
+   <span class="input-group-text btn-card" id="inputGroup-sizing-default">Email</span>
+  <input type="text" class="form-control"aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="email_cliente" disabled="disabled">
+   <span class="input-group-text btn-card" id="inputGroup-sizing-default">Nombre</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="nombre_cliente" disabled="disabled">
+   <span class="input-group-text btn-card" id="inputGroup-sizing-default">Telefono</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="telefono_cliente" disabled="disabled">
+</form>
+ <button type="button" class="btn btn-primary btn-card-enviar" onclick="enviar()">
+<i class="fas fa-check"></i> Buscar Cliente
+</button>
 </div>
+				
+				
+
+
 
 	<div class="card-buttons">
 
@@ -90,56 +98,48 @@
 					<i class="fas fa-clipboard-list" ></i> Listar todos los clientes</button>
 	</div>
 
-		
-
 	
 	
 	<script>
-		function eliminar() {
-			var y = document.getElementById("cedula_cliente").value;
-			var req = new XMLHttpRequest();
-			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarclientes', false);
-			req.send(null);
-			var clientes = null;
-			if (req.status == 200)
-				clientes = JSON.parse(req.responseText);
-			console.log(JSON.parse(req.responseText));
-
-			for (i = 0; i < clientes.length; i++) {
+		function enviar() {
 				
-				console.log(clientes[i].cedula_cliente);
-				if (clientes[i].cedula_cliente == y) {
-					console.log(clientes[i].cedula_cliente + " " + y);
-					coincidencia = true;
-					break;
-				}
-			}
-			console.log(coincidencia);
-
-			if (coincidencia != false) {
-				var cedula=document.getElementById("cedula_cliente").value;
+				var req = new XMLHttpRequest();
+				var coincidencia = false;
+				var ced_bus=   document.getElementById("cedula_buscar").value;
+				req.open('GET', 'http://localhost:8080/consultarcliente?cedula_cliente='+ced_bus, false);
+				req.send(null);
+				var cliente = null;
+				if (req.status == 200)
+					cliente = JSON.parse(req.responseText);
+				console.log(JSON.parse(req.responseText));
 				
-				var xhr = new XMLHttpRequest();
-				xhr.open("DELETE", "http://localhost:8080/eliminarclientes?cedula_cliente="+cedula);
-				
+			
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
-				
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
-
-				document.getElementById("cedula_cliente").value = "";
-				xhr.send();
-
+				
+				console.log(cliente.toString());
+				
+			if (cliente.toString()!=""){
+				document.getElementById("cedula_cliente").value = cliente[0].cedula_cliente;
+				document.getElementById("direccion_cliente").value = cliente[0].direccion_cliente;
+				document.getElementById("email_cliente").value = cliente[0].email_cliente;
+				document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
+				document.getElementById("telefono_cliente").value = cliente[0].telefono_cliente;
+				
+				document.getElementById("cedula_buscar").value = "";
+			
 			} else {
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
-				
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
-				
-				document.getElementById("cedula_cliente").value = "";;
+				document.getElementById("cedula_cliente").value = "";
+				document.getElementById("direccion_cliente").value = "";
+				document.getElementById("email_cliente").value = "";
+				document.getElementById("nombre_cliente").value = "";
+				document.getElementById("telefono_cliente").value = "";
 			}
 		}
 	</script>
