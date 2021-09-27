@@ -92,7 +92,7 @@
 <div class="card-buttons">
           <button type="button" class="btn btn-success btn-card" onclick="window.location.href='/insertarusuario.jsp'">
 					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger btn-card">
+					<button type="button" class="btn btn-danger btn-card" onclick="window.location.href='/eliminarusuario.jsp'">
 					<i class="fas fa-trash"></i> Eliminar usuario</button>
 					<button type="button" class="btn btn-warning btn-card">
 					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
