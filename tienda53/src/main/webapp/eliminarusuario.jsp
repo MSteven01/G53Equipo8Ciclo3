@@ -49,7 +49,7 @@
 
 
 	<div class="card-login">
-		<h1>Agregar Usuarios</h1>
+		<h1>Eliminar Usuarios</h1>
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
@@ -84,7 +84,7 @@
 					<i class="fas fa-trash"></i> Eliminar usuario</button>
 					<button type="button" class="btn btn-warning btn-card-footer">
 					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary btn-card-footer">
+					<button type="button" class="btn btn-primary btn-card-footer"  onclick="window.location.href='/buscarusuario.jsp'">
 					<i class="fas fa-search"></i> Buscar un usuario</button>
 					<button type="button" class="btn btn-info btn-card-footer" onclick="window.location.href='/listausuarios.jsp'">
 					<i class="fas fa-clipboard-list" ></i> Listar todos los usuarios</button>

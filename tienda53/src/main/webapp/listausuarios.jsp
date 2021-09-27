@@ -96,9 +96,9 @@
 					<i class="fas fa-trash"></i> Eliminar usuario</button>
 					<button type="button" class="btn btn-warning btn-card">
 					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary btn-card">
+					<button type="button" class="btn btn-primary btn-card"  onclick="window.location.href='/buscarusuario.jsp'">
 					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-info btn-card">
+					<button type="button" class="btn btn-info btn-card" onclick="window.location.href='/listausuarios.jsp'">
 					<i class="fas fa-clipboard-list"></i> Listar todos los usuarios</button>
 </div>
 
