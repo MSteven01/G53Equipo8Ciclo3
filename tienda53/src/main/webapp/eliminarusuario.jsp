@@ -82,7 +82,7 @@
 					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
 					<button type="button" class="btn btn-danger btn-card-footer" onclick="window.location.href='/eliminarusuario.jsp'">
 					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning btn-card-footer">
+					<button type="button" class="btn btn-warning btn-card-footer" onclick="window.location.href='/actualizarusuario.jsp'">
 					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
 					<button type="button" class="btn btn-primary btn-card-footer"  onclick="window.location.href='/buscarusuario.jsp'">
 					<i class="fas fa-search"></i> Buscar un usuario</button>

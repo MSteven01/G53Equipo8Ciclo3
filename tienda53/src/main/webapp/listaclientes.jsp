@@ -94,7 +94,7 @@
 					<i class="fas fa-plus-circle"></i> Agregar cliente</button>
 					<button type="button" class="btn btn-danger btn-card" onclick="window.location.href='/eliminarcliente.jsp'">
 					<i class="fas fa-trash"></i> Eliminar cliente</button>
-					<button type="button" class="btn btn-warning btn-card">
+					<button type="button" class="btn btn-warning btn-card" onclick="window.location.href='/actualizarcliente.jsp'">
 					<i class="fas fa-pen-alt"></i> Actualizar cliente</button>
 					<button type="button" class="btn btn-primary btn-card" onclick="window.location.href='/buscarcliente.jsp'">
 					<i class="fas fa-search"></i> Buscar un cliente</button>
