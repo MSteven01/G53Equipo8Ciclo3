@@ -64,9 +64,9 @@
  <form action="form1">
  
  <span class="input-group-text btn-card" id="basic-addon4">Ingrese usuario a buscar.</span> 
- <input	type="text" class="form-control form" aria-describedby="basic-addon4" required id="usersearch" >
+ <input	type="text" class="form-control" aria-describedby="basic-addon4" required id="usersearch" >
  
-  <button type="button" class="btn btn-primary btn-card-enviar" onclick="enviar()">
+  <button type="button" class="btn btn-success btn-card-enviar form" onclick="enviar()">
 <i class="fas fa-search"></i> Buscar Usuario
 </button>
  

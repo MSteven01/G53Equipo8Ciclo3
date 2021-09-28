@@ -62,8 +62,8 @@
 
  <form action="form1">
  
- <span class="input-group-text" id="basic-addon4">Ingrese cliente a buscar.</span> 
- <input	type="text" class="form-control" placeholder="Inserte cedula aqui..."	aria-describedby="basic-addon4" required id="cedula_buscar" >
+ <span class="input-group-text btn-card" id="basic-addon4">Ingrese cliente a buscar.</span> 
+ <input	type="text" class="form-control" aria-describedby="basic-addon4" required id="cedula_buscar" >
   <span class="input-group-text btn-card" id="inputGroup-sizing-default">Cedula</span>
   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="cedula_cliente" required disabled="disabled">
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">Direccion</span>

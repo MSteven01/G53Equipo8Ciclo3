@@ -63,7 +63,7 @@
  <form action="form1">
  
  <span class="input-group-text btn-card" id="basic-addon4">Ingrese usuario a buscar.</span> 
- <input	type="text" class="form-control form" aria-describedby="basic-addon4" required id="usersearch" >
+ <input	type="text" class="form-control" aria-describedby="basic-addon4" required id="usersearch" >
   <span class="input-group-text btn-card" id="inputGroup-sizing-default">Cedula</span>
   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="cedula_usuario" required disabled="disabled">
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">E-mail</span>
