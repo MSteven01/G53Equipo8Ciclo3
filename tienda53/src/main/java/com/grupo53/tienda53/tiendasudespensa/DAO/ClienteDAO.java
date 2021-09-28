@@ -22,10 +22,10 @@ public class ClienteDAO {
 			//String que contiene la sentencia insert a ejecutar
 			String sentencia = "INSERT INTO clientes VALUES(" 
 					+ client.getCedula_cliente() + "," + "'"
+					+ client.getDireccion_cliente() + "'," + "'" 
 					+ client.getEmail_cliente() + "'," + "'" 
-					+ client.getNombre_cliente() + "'," + "'" 
-					+ client.getTelefono_cliente()+ "'," + "'" 
-					+ client.getDireccion_cliente() + "'" 
+					+ client.getNombre_cliente()+ "'," + "'" 
+					+ client.getTelefono_cliente() + "'" 
 					+ ");";
 			
 			//se ejecuta la sentencia en la base de datos

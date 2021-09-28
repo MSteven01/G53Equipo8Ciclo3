@@ -90,16 +90,17 @@
 	</div>
 
 <div class="card-buttons">
-          <button type="button" class="btn btn-success btn-card" onclick="window.location.href='/insertarusuario.jsp'">
+
+          <button type="button" class="btn btn-success btn-card-footer" onclick="window.location.href='/insertarusuario.jsp'">
 					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger btn-card">
+					<button type="button" class="btn btn-danger btn-card-footer" onclick="window.location.href='/eliminarusuario.jsp'">
 					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning btn-card">
+					<button type="button" class="btn btn-warning btn-card-footer" onclick="window.location.href='/actualizarusuario.jsp'">
 					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary btn-card">
+					<button type="button" class="btn btn-primary btn-card-footer" onclick="window.location.href='/buscarusuario.jsp'">
 					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-info btn-card">
-					<i class="fas fa-clipboard-list"></i> Listar todos los usuarios</button>
+					<button type="button" class="btn btn-info btn-card-footer" onclick="window.location.href='/listausuarios.jsp'">
+					<i class="fas fa-clipboard-list" ></i> Listar todos los usuarios</button>
 </div>
 
 </body>

@@ -111,10 +111,11 @@
 			if (coincidencia==false){
 				var formData = new FormData();
 	 			formData.append("cedula_cliente", document.getElementById("cedula_cliente").value);
+	 			formData.append("direccion_cliente",document.getElementById("direccion_cliente").value);
 	 			formData.append("email_cliente", document.getElementById("email_cliente").value);
 	 			formData.append("nombre_cliente", document.getElementById("nombre_cliente").value);
 	 			formData.append("telefono_cliente",document.getElementById("telefono_cliente").value);
-	 			formData.append("direccion_cliente",document.getElementById("direccion_cliente").value);
+
 	 			var xhr = new XMLHttpRequest();
 	 			xhr.open("POST", "http://localhost:8080/registrarclientes");
 	 			
