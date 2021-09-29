@@ -75,11 +75,11 @@
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">E-mail</span>
   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="email_usuario" required >
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">Nombre completo</span>
-  <input type="text" class="form-control"aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="nombre_usuario" >
+  <input type="text" class="form-control"aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="nombre_usuario">
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">User Name</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="user" >
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="user" required disabled="disabled">
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">Contraseña</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="password" >
+  <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="password" >
 </form>
  <button type="button" class="btn btn-primary btn-card-enviar" onclick="actualizar()">
 <i class="fas fa-search"></i> Actualizar Usuario

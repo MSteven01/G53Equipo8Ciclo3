@@ -77,7 +77,7 @@
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">Email</span>
   <input type="text" class="form-control"aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="email_cliente" >
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">Nombre</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="nombre_cliente" >
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="nombre_cliente">
    <span class="input-group-text btn-card" id="inputGroup-sizing-default">Telefono</span>
   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="telefono_cliente" >
 </form>
