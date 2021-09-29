@@ -26,7 +26,8 @@ body{
   margin:auto;
   margin-top: 3%;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255 ,0.7)
+  background-color: rgb(45 45 45 / 76%);
+
 }
 
 .card-header,h1{
@@ -34,6 +35,8 @@ body{
   font-size: 25px;
   margin-top:5%;
   margin-bottom: 15px;
+    color: rgba(168, 128, 18, 0.877);
+  
 }
 .card-body{
   padding-left: 35px;
@@ -118,8 +121,16 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     text-size-adjust: auto;	
+  
+}
+
+.btn-card-footer{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-size-adjust: auto;	
     margin-right: 5px;
-    color: white;
+ 	color:white;
 }
 
 .btn-card-enviar{
@@ -127,13 +138,17 @@ body{
   height: 40px;
   font-size: 20px;
   text-align: left;
-  color: black;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 5px;
   border-radius: 7px;
 }
 .form-control{
   margin-bottom:5px;
+}
+.form{
+	margin-bottom: 50px;
+
 }
 .card-table{
 	font-size: 20px;

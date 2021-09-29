@@ -14,31 +14,31 @@
 	<link href="clistusuarios.css" rel="stylesheet" type="text/css" />
 
   <script>
-	var baseurl = "http://localhost:8080/listarusuarios";
-	function loadusuarios() {
+	var baseurl = "http://localhost:8080/listarclientes";
+	function loadclientes() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				var usuarios = JSON.parse(xmlhttp.responseText);
-				var tbltop = "<table class='table table-dark table-striped'><tr><th>Cedula</th><th>Email</th><th>Nombre</th><th>Password</th><th>Usuario</th></tr>";
+				var clientes = JSON.parse(xmlhttp.responseText);
+				var tbltop = "<table class='table table-dark table-striped'><tr><th>Cedula</th><th>Email</th><th>Nombre</th><th>Telefono</th><th>Direccion</th></tr>";
 				var main = "";
-				for (i = 0; i < usuarios.length; i++) {
-					main += "<tr><td>" + usuarios[i].cedula_usuario
-							+ "</td><td>" + usuarios[i].email_usuario
-							+ "</td><td>" + usuarios[i].nombre_usuario
-							+ "</td><td>" + usuarios[i].password + "</td><td>"
-							+ usuarios[i].usuario + "</td></tr>";
+				for (i = 0; i < clientes.length; i++) {
+					main += "<tr><td>" + clientes[i].cedula_cliente
+							+ "</td><td>" + clientes[i].email_cliente
+							+ "</td><td>" + clientes[i].nombre_cliente
+							+ "</td><td>" + clientes[i].telefono_cliente 
+							+ "</td><td>" + clientes[i].direccion_cliente + "</td></tr>";
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
-				document.getElementById("usuariosinfo").innerHTML = tbl;
+				document.getElementById("clienteinfo").innerHTML = tbl;
 			}
 		};
 		xmlhttp.send();
 	}
 	window.onload = function() {
-		loadusuarios();
+		loadclientes();
 	}
 </script>
 
@@ -79,27 +79,27 @@
 </header>
 	
 	<div class="card-table">
-		<h1 class="title-table">Tabla de usuarios</h1>
+		<h1 class="title-table">Tabla de Clientes</h1>
 			<div class="container">
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="usuariosinfo"> 	
+					<div class="col align-self-center" id="clienteinfo"> 	
 					</div>
 				</div>
 			</div>
 	</div>
 
 <div class="card-buttons">
-          <button type="button" class="btn btn-success btn-card" onclick="window.location.href='/insertarusuario.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger btn-card" onclick="window.location.href='/eliminarusuario.jsp'">
-					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning btn-card" onclick="window.location.href='/actualizarusuario.jsp'">
-					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary btn-card"  onclick="window.location.href='/buscarusuario.jsp'">
-					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-info btn-card" onclick="window.location.href='/listausuarios.jsp'">
-					<i class="fas fa-clipboard-list"></i> Listar todos los usuarios</button>
+          <button type="button" class="btn btn-success btn-card" onclick="window.location.href='/insertarclientes.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar cliente</button>
+					<button type="button" class="btn btn-danger btn-card" onclick="window.location.href='/eliminarcliente.jsp'">
+					<i class="fas fa-trash"></i> Eliminar cliente</button>
+					<button type="button" class="btn btn-warning btn-card" onclick="window.location.href='/actualizarcliente.jsp'">
+					<i class="fas fa-pen-alt"></i> Actualizar cliente</button>
+					<button type="button" class="btn btn-primary btn-card" onclick="window.location.href='/buscarcliente.jsp'">
+					<i class="fas fa-search"></i> Buscar un cliente</button>
+					<button type="button" class="btn btn-info btn-card" onclick="window.location.href='/listaclientes.jsp'">
+					<i class="fas fa-clipboard-list"></i> Listar todos los cliente</button>
 </div>
 
 </body>
