@@ -18,6 +18,24 @@ CREATE TABLE clientes(
     telefono_cliente VARCHAR (255) NOT NULL
 );
 
+CREATE TABLE proveedores(
+	nit_proveedor BIGINT PRIMARY KEY,
+    nombre_proveedor VARCHAR(255) NOT NULL,
+    direccion_proveedor VARCHAR(255) NOT NULL,
+    telefono_proveedor VARCHAR (255) NOT NULL,
+	ciudad_proveedor VARCHAR (255) NOT NULL
+);
+
+CREATE TABLE productos(
+    codigo_producto BIGINT PRIMARY KEY,
+    iva_compra DOUBLE NOT NULL,
+    nit_proveedor BIGINT NOT NULL,
+    nombre_producto VARCHAR (255) NOT NULL,
+    precio_compra DOUBLE NOT NULL,
+    precio_venta DOUBLE NOT NULL,
+    FOREIGN KEY (nit_proveedor) REFERENCES proveedores(nit_proveedor)    
+);
+
 INSERT INTO usuarios VALUES (001,'lolo123@gmail.com','Lolo Perez','admin123456','admininicial');
 INSERT INTO usuarios VALUES (002,'lolo123@gmail.com','Lolo Perez','pass','user');
 INSERT INTO usuarios VALUES (003,'lolo123@gmail.com','Lolo Perez','pass2','user2');
