@@ -27,8 +27,8 @@
 					main += "<tr><td>" + usuarios[i].cedula_usuario
 							+ "</td><td>" + usuarios[i].email_usuario
 							+ "</td><td>" + usuarios[i].nombre_usuario
-							+ "</td><td>" + usuarios[i].password + "</td><td>"
-							+ usuarios[i].usuario + "</td></tr>";
+							+ "</td><td>" + usuarios[i].password 
+							+ "</td><td>" + usuarios[i].usuario + "</td></tr>";
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;

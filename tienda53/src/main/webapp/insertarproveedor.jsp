@@ -96,7 +96,7 @@
 			for (i = 0; i < proveedores.length; i++) {
 				console.log(proveedores[i].nit_proveedor);
 				
-				if (proveedor[i].nit_proveedor ==y ) {
+				if (proveedores[i].nit_proveedor ==y ) {
 					console.log(proveedor[i].nit_proveedor +" "+y);	
 					coincidencia =true
 					break;
