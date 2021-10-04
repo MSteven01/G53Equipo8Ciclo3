@@ -36,7 +36,7 @@
        <a class="navbar-brand" href="listausuarios.jsp"><i class="fas fa-users icon-nav"></i>Usuarios</a>
        <a class="navbar-brand" href="listaclientes.jsp"><i class="far fa-address-card icon-nav"></i>Clientes</a>
        <a class="navbar-brand" href="listaproveedores.jsp"><i class="fas fa-truck icon-nav"></i>Proveedores</a>
-       <a class="navbar-brand" href="#"><i class="fas fa-box-open icon-nav"></i>Productos</a>
+       <a class="navbar-brand" href="insertarproducto.jsp"><i class="fas fa-box-open icon-nav"></i>Productos</a>
        <a class="navbar-brand" href="#"><i class="fas fa-file-invoice-dollar icon-nav"></i>Ventas</a>
        <a class="navbar-brand" href="#"><i class="fas fa-clipboard-list icon-nav"></i>Reportes</a>
       </div>

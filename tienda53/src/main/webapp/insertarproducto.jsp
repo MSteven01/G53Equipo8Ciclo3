@@ -16,6 +16,35 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link href="cinsertar.css" rel="stylesheet" type="text/css" />
+<script>
+	function loadproductos() {
+		var baseurl = "http://localhost:8080/listarproductos";
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", baseurl, true);
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+				var productos = JSON.parse(xmlhttp.responseText);
+				var tbltop = "<table class='table table-dark table-striped'><tr><th>Codigo Producto</th><th>Iva</th><th>Nit Proveedor</th><th>Nombre Producto</th><th>Precio Compra</th></th><th>Precio Venta</th></tr>";
+				var main = "";
+				for (i = 0; i < productos.length; i++) {
+					main += "<tr><td>" + productos[i].codigo_producto
+							+ "</td><td>" + productos[i].iva_compra
+							+ "</td><td>" + productos[i].nit_proveedor
+							+ "</td><td>" + productos[i].nombre_producto
+							+ "</td><td>" + productos[i].precio_compra 
+							+ "</td><td>" + productos[i].precio_venta + "</td></tr>";
+				}
+				var tblbottom = "</table>";
+				var tbl = tbltop + main + tblbottom;
+				document.getElementById("productosinfo").innerHTML = tbl;
+			}
+		};
+		xmlhttp.send();
+	}
+	window.onload = function() {
+		loadproductos();
+	}
+</script>
 </head>
 <body>
 
@@ -44,7 +73,7 @@
 							class="far fa-address-card icon-nav"></i>Clientes</a> <a
 							class="navbar-brand" href="listaproveedores.jsp"><i
 							class="fas fa-truck icon-nav"></i>Proveedores</a> <a
-							class="navbar-brand" href="#"><i
+							class="navbar-brand" href="insertarproducto.jsp"><i
 							class="fas fa-box-open icon-nav"></i>Productos</a> <a
 							class="navbar-brand" href="#"><i
 							class="fas fa-file-invoice-dollar icon-nav"></i>Ventas</a> <a
@@ -77,9 +106,11 @@
 					onclick="subirArchivo()">
 					<i class="far fa-file-archive icon-productos"></i>Subir archivo
 				</button>
+				
+				
 				<button type="button" class="btn btn-success btn-card-enviar"
 					onclick="window.location.reload()">
-					<i class="far fa-file-archive icon-productos"></i>Reload
+					<i class="fas fa-sync icon-productos"></i>Recargar
 				</button>
 			</div>
 		</form>
@@ -95,97 +126,73 @@
 
 
 	<script>
-	
-		function subirArchivo() {
-			try {
-				var csvFile = document.getElementById("archivo");
-				var input = csvFile.files[0];
-				var reader = new FileReader();
-				reader.onload = function(e) {
-					var text = e.target.result;
-					var arrayLineas = text.split("\n");
-					var xhr = new XMLHttpRequest();
-					xhr.open("DELETE",
-							"http://localhost:8080/eliminartodoproducto", true);
-					xhr.send();
-					for (var i = 0; i < arrayLineas.length; i += 1) {
-						var arraydatos = arrayLineas[i].split(",");
 
-						if (arrayLineas[i] == "") {
-							continue;
-						}
+	function subirArchivo() {
 
-						for (var j = 0; j < arraydatos.length; j += 1) {
-							console.log(i + " " + j + "->" + arraydatos[j]);
-						}
+		try {
 
-						var formData = new FormData();
-						formData.append("codigo_producto", arraydatos[0]);
-						formData.append("nombre_producto", arraydatos[1]);
-						formData.append("nit_proveedor", arraydatos[2]);
-						formData.append("precio_compra", arraydatos[3]);
-						formData.append("iva_compra", arraydatos[4]);
-						formData.append("precio_venta", arraydatos[5]);
-						var xhr = new XMLHttpRequest();
-						xhr.open("POST",
-								"http://localhost:8080/registrarproducto");
+			var csvFile = document.getElementById("archivo");
 
-						xhr.send(formData);
+			var input = csvFile.files[0];
+			var reader = new FileReader();
+
+			reader.onload = function(e) {
+
+				var text = e.target.result;
+
+				var arrayLineas = text.split("\n");
+
+				var xhr = new XMLHttpRequest();
+				xhr.open("DELETE",
+						"http://localhost:8080/eliminartodoproducto",true);
+				xhr.send();
+
+				for (var i = 0; i < arrayLineas.length; i += 1) {
+					var arraydatos = arrayLineas[i].split(",");
+
+					if (arrayLineas[i] == "") {
+						continue;
 					}
 
-					var element = document.getElementById("error");
-					element.classList.add("visually-hidden");
-					var element2 = document.getElementById("correcto");
-					element2.classList.remove("visually-hidden");
+					for (var j = 0; j < arraydatos.length; j += 1) {
+						console.log(i + " " + j + "->" + arraydatos[j]);
+					}
 
-					document.getElementById("archivo").value = "";
+					var formData = new FormData();
+					formData.append("codigo_producto", arraydatos[0]);
+					formData.append("nombre_producto", arraydatos[1]);
+					formData.append("nit_proveedor", arraydatos[2]);
+					formData.append("precio_compra", arraydatos[3]);
+					formData.append("iva_compra", arraydatos[4]);
+					formData.append("precio_venta", arraydatos[5]);
+					var xhr = new XMLHttpRequest();
+					xhr.open("POST",
+							"http://localhost:8080/registrarproducto");
 
-				};
+					xhr.send(formData);
+				}
 
-				reader.readAsText(input);
-			} catch (error) {
 				var element = document.getElementById("error");
-				element.classList.remove("visually-hidden");
+				element.classList.add("visually-hidden");
 				var element2 = document.getElementById("correcto");
-				element2.classList.add("visually-hidden");
+				element2.classList.remove("visually-hidden");
 
 				document.getElementById("archivo").value = "";
-			}
+
+			};
+
+			reader.readAsText(input);
+		} catch (error) {
+			var element = document.getElementById("error");
+			element.classList.remove("visually-hidden");
+			var element2 = document.getElementById("correcto");
+			element2.classList.add("visually-hidden");
+
+			document.getElementById("archivo").value = "";
 		}
-	</script>
-	
-	
-	
-<script>
-	function loadproductos() {
-		var baseurl = "http://localhost:8080/listarproductos";
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl, true);
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				var productos = JSON.parse(xmlhttp.responseText);
-				var tbltop = "<table class='table table-dark table-striped'><tr><th>Codigo Producto</th><th>Iva</th><th>Nit Proveedor</th><th>Nombre Producto</th><th>Precio Compra</th></th><th>Precio Venta</th></tr>";
-				var main = "";
-				for (i = 0; i < productos.length; i++) {
-					main += "<tr><td>" + productos[i].codigo_producto
-							+ "</td><td>" + productos[i].iva_compra
-							+ "</td><td>" + productos[i].nit_proveedor
-							+ "</td><td>" + productos[i].nombre_producto
-							+ "</td><td>" + productos[i].precio_compra 
-							+ "</td><td>" + productos[i].precio_venta + "</td></tr>";
-				}
-				var tblbottom = "</table>";
-				var tbl = tbltop + main + tblbottom;
-				document.getElementById("productosinfo").innerHTML = tbl;
-			}
-		};
-		xmlhttp.send();
-	}
-	window.onload = function() {
-		loadproductos();
 	}
 </script>
-
-
+	
+	
 </body>
 </html>

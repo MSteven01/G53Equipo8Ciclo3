@@ -47,32 +47,41 @@
 <body>
 
 <header>
- <nav class="navbar navbar-dark bg-dark navbar-expand-lg border-nav">
-    <div class="container-fluid div-navbar">
-    <a class="navbar-brand" href="#">
-    <i class="fas fa-store icon-nav"></i>
-      Market SuDespensa.com
-    </a>
-    </div>
-  </nav>
-	<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse container-fluid div-navbar" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-       <a class="navbar-brand" href="listausuarios.jsp"><i class="fas fa-users icon-nav"></i>Usuarios</a>
-       <a class="navbar-brand" href="listaclientes.jsp"><i class="far fa-address-card icon-nav"></i>Clientes</a>
-       <a class="navbar-brand" href="listaproveedores.jsp"><i class="fas fa-truck icon-nav"></i>Proveedores</a>
-       <a class="navbar-brand" href="#"><i class="fas fa-box-open icon-nav"></i>Productos</a>
-       <a class="navbar-brand" href="#"><i class="fas fa-file-invoice-dollar icon-nav"></i>Ventas</a>
-       <a class="navbar-brand" href="#"><i class="fas fa-clipboard-list icon-nav"></i>Reportes</a>
-      </div>
-    </div>
-  </div>
-</nav>
-</header>
+		<nav class="navbar navbar-dark bg-dark navbar-expand-lg border-nav">
+			<div class="container-fluid div-navbar">
+				<a class="navbar-brand" href="#"> <i
+					class="fas fa-store icon-nav"></i> Market SuDespensa.com
+				</a>
+			</div>
+		</nav>
+		<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse container-fluid div-navbar"
+					id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="navbar-brand" href="listausuarios.jsp"><i
+							class="fas fa-users icon-nav"></i>Usuarios</a> <a
+							class="navbar-brand" href="listaclientes.jsp"><i
+							class="far fa-address-card icon-nav"></i>Clientes</a> <a
+							class="navbar-brand" href="listaproveedores.jsp"><i
+							class="fas fa-truck icon-nav"></i>Proveedores</a> <a
+							class="navbar-brand" href="insertarproducto.jsp"><i
+							class="fas fa-box-open icon-nav"></i>Productos</a> <a
+							class="navbar-brand" href="#"><i
+							class="fas fa-file-invoice-dollar icon-nav"></i>Ventas</a> <a
+							class="navbar-brand" href="#"><i
+							class="fas fa-clipboard-list icon-nav"></i>Reportes</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
 	
 	<div class="card-table">
 		<h1 class="title-table">Tabla de Clientes</h1>
