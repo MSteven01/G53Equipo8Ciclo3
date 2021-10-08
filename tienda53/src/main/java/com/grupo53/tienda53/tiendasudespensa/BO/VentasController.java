@@ -2,10 +2,10 @@ package com.grupo53.tienda53.tiendasudespensa.BO;
 
 import java.util.ArrayList;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo53.tienda53.tiendasudespensa.DAO.ClienteDAO;
@@ -34,6 +34,12 @@ public class VentasController {
 			VentaDAO Dao = new VentaDAO();
 			return Dao.listaDeVentas();
 		
+		}
+		
+		@GetMapping("/consultarventacliente2")
+		public String consultarCliente2(Integer ced) {
+			VentaDAO Dao = new VentaDAO();
+			return Dao.consultarClientePrueba(ced);
 		}
 }
 		/*	

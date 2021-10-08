@@ -270,5 +270,50 @@ public class VentaDAO {
 
 	}
 */
+	
+	/* Consulta de prueba directa a tabla usuario*/
+	
+	public String consultarClientePrueba(int cedula_cliente) {	
+		//lista que contendra el o los usuarios obtenidos
+		String NombreCliente="";
+	
+		//instancia de la conexión
+		Conexion conex = new Conexion();
+		try {
+			//prepare la sentencia en la base de datos
+			PreparedStatement consulta = conex.getConnection()
+					.prepareStatement("SELECT nombre_cliente FROM clientes where cedula_cliente = ? ");		
+			// se cambia el comodin ? por el dato que ha llegado en el parametro de la funcion
+			consulta.setInt(1, cedula_cliente);			
+			//ejecute la sentencia
+			ResultSet res = consulta.executeQuery();			
+			//cree un objeto basado en la clase entidad con los datos encontrados
+			if (res.next()) {
+				NombreCliente = res.getString("nombre_cliente");
+			}
+			//cerrar resultado, sentencia y conexión
+			res.close();
+			consulta.close();
+			conex.desconectar();
+
+		} catch (SQLException e) {
+			//si hay un error en el sql mostrarlo
+			System.out.println("------------------- ERROR --------------");
+			System.out.println("No se pudo consultar el cliente");
+			System.out.println(e.getMessage());
+			System.out.println(e.getErrorCode());
+		} catch (Exception e) {
+			//si hay cualquier otro error mostrarlo
+			System.out.println("------------------- ERROR --------------");
+			System.out.println("No se pudo consultar el cliente");
+			System.out.println(e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+		return NombreCliente;
+	}
+	
+	
+	
+	
 }
 
