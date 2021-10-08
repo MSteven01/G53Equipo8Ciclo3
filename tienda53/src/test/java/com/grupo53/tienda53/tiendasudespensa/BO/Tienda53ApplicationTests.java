@@ -1,4 +1,4 @@
-package com.grupo53.tienda53;
+package com.grupo53.tienda53.tiendasudespensa.BO;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

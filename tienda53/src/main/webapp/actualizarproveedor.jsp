@@ -111,6 +111,7 @@
 				var coincidencia = false;
 				var nit_bus=   document.getElementById("nit_proveedor1").value;
 				req.open('GET', 'http://localhost:8080/consultarproveedores?nit_proveedor='+nit_bus, false);
+				console.log()
 				req.send(null);
 				var proveedor = null;
 				if (req.status == 200)

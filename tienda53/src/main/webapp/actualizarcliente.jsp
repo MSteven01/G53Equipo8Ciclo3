@@ -105,12 +105,22 @@
 	
 	
 	<script>
+	
+
+	
 		function enviar() {
-				
+			
+			//lineas para ip dinamica
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+			    
+			console.log(baseUrl);
+			
+	
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
-				var ced_bus=   document.getElementById("cedula_buscar").value;
-				req.open('GET', 'http://localhost:8080/consultarcliente?cedula_cliente='+ced_bus, false);
+				var ced_bus=document.getElementById("cedula_buscar").value;
+				req.open('GET',baseUrl+'/consultarcliente?cedula_cliente='+ced_bus, false);
 				req.send(null);
 				var cliente = null;
 				if (req.status == 200)
@@ -149,10 +159,14 @@
 		
 		
 		function actualizar() {
+			
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+			
 			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarclientes', false);
+			req.open('GET', baseUrl+'/listarclientes', false);
 			req.send(null);
 			var cliente = null;
 			if (req.status == 200)
@@ -183,7 +197,7 @@
 				formData.append("telefono_cliente",
 						document.getElementById("telefono_cliente").value);
 				var xhr = new XMLHttpRequest();
-				xhr.open("PUT", "http://localhost:8080/actualizarcliente");
+				xhr.open("PUT", baseUrl+"/actualizarcliente");
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
