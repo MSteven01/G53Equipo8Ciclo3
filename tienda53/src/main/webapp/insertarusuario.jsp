@@ -25,16 +25,7 @@
 			</div>
 		</nav>
 		<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-			<div class="container-fluid">
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-					aria-controls="navbarNavAltMarkup" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse container-fluid div-navbar"
-					id="navbarNavAltMarkup">
-					<div class="navbar-nav">
+				<div class="navbar-nav">
 						<a class="navbar-brand" href="listausuarios.jsp"><i
 							class="fas fa-users icon-nav"></i>Usuarios</a> <a
 							class="navbar-brand" href="listaclientes.jsp"><i
@@ -48,8 +39,6 @@
 							class="navbar-brand" href="#"><i
 							class="fas fa-clipboard-list icon-nav"></i>Reportes</a>
 					</div>
-				</div>
-			</div>
 		</nav>
 	</header>
 
