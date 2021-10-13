@@ -275,5 +275,50 @@ public class VentaDAO {
 		}
 
 	}
+	
+	
+	public ArrayList<VentaVO> consultarConsecutivo() {
+		// lista que contendra el o los productos obtenidos
+		ArrayList<VentaVO> listaventa = new ArrayList<VentaVO>();
+
+		// instancia de la conexión
+		Conexion conex = new Conexion();
+
+		try {
+			// prepare la sentencia en la base de datos
+			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT codigo_venta FROM ventas ORDER BY codigo_venta DESC LIMIT 1;");
+
+			// ejecute la sentencia
+			ResultSet res = consulta.executeQuery();
+
+			// cree un objeto para cada encontrado en la base de datos basado en la clase
+			// entidad con los datos encontrados
+			while (res.next()) {
+				VentaVO newventa = new VentaVO();
+				newventa.setCodigo_venta(Integer.parseInt(res.getString("codigo_venta")));
+				listaventa.add(newventa);
+			}
+
+			// cerrar resultado, sentencia y conexión
+			res.close();
+			consulta.close();
+			conex.desconectar();
+
+		} catch (SQLException e) {
+			// si hay un error en el sql mostrarlo
+			System.out.println("------------------- ERROR --------------");
+			System.out.println("No se pudo consultar todos los productos");
+			System.out.println(e.getMessage());
+			System.out.println(e.getErrorCode());
+		} catch (Exception e) {
+			// si hay cualquier otro error mostrarlo
+			System.out.println("------------------- ERROR --------------");
+			System.out.println("No se pudo consultar todos los productos");
+			System.out.println(e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+
+		return listaventa;
+	}
 
 }

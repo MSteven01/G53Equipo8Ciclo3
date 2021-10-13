@@ -54,4 +54,12 @@ public class VentasController {
 		VentaDAO Dao = new VentaDAO();
 		Dao.actualizarVenta(vent);
 	}
+	
+	@GetMapping("/consultarconsecutivo")
+	public ArrayList<VentaVO> consultarConsecutivo() {
+		VentaDAO Dao = new VentaDAO();
+		return Dao.consultarConsecutivo();
+
+	}
+
 }

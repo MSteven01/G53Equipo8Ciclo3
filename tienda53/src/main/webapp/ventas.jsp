@@ -67,11 +67,15 @@
 						aria-describedby="inputGroup-sizing-default" id="iva">
 				</div>
 
-				<!--  <div class="input-group mb-3">
-		<span class="input-group-text p-insertar" id="inputGroup-sizing-default">Consec.</span>
-  		<input type="text" class="form-controls1 form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="#s">
-	</div>
-	-->
+
+				<div class="input-group mb-3">
+					<span class="input-group-text p-insertar"
+						id="inputGroup-sizing-default">Cédula usuario</span> <input type="text"
+						class="form-control" aria-label="Sizing example input"
+						aria-describedby="inputGroup-sizing-default" required
+						id="cedula_usuario">
+				</div>
+
 
 				<div class="input-group mb-3">
 					<span class="input-group-text p-insertar"
@@ -96,6 +100,7 @@
 
 
 				<table class="table align-middle table table-borderless">
+					
 					<thead>
 						<tr>
 							<th scope="col"><span class="input-group-text p-insertar"
@@ -110,11 +115,10 @@
 							<th scope="col"><span class="input-group-text p-insertar"
 								id="inputGroup-sizing-default">Vlr.total</span></th>
 						</tr>
-					</thead>
-
-
-
-					<tbody>
+						</thead>
+						
+						
+						<tbody>
 						<tr>
 							<th scope="row"><input type="text"
 								class="form-controls1 form-control"
@@ -133,24 +137,20 @@
 
 							<td><input type="number" class="form-controls1 form-control"
 								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="cantidad1"></td>
+								aria-describedby="inputGroup-sizing-default" id="cantidad1"
+								min="0" max="100" value="0"
+								oninput="validity.valid||(value='0');"></td>
 							<td><input type="text" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="precio1"
 								disabled="disabled"></td>
 
 
-							<td><input type="text" class="form-controls1 form-control"
+							<td><input type="number" class="form-controls1 form-control"
 								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="total1"
-								disabled="disabled"></td>
+								aria-describedby="inputGroup-sizing-default" id="total1" min="0"
+								value="0" disabled="disabled"></td>
 						</tr>
-
-
-
-
-
-
 
 						<tr>
 							<th scope="row"><input type="text"
@@ -169,15 +169,17 @@
 								id="nombre_producto2" disabled="disabled"></td>
 							<td><input type="number" class="form-controls1 form-control"
 								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="cantidad2"></td>
+								aria-describedby="inputGroup-sizing-default" id="cantidad2"
+								min="0" max="100" value="0"
+								oninput="validity.valid||(value='0');"></td>
 							<td><input type="text" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="precio2"
 								disabled="disabled"></td>
-							<td><input type="text" class="form-controls1 form-control"
+							<td><input type="number" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="total2"
-								disabled="disabled"></td>
+								value="0" disabled="disabled"></td>
 						</tr>
 
 
@@ -200,31 +202,66 @@
 								id="nombre_producto3" disabled="disabled"></td>
 							<td><input type="number" class="form-controls1 form-control"
 								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="cantidad3"></td>
+								aria-describedby="inputGroup-sizing-default" id="cantidad3"
+								min="0" maxlength="100" value="0"
+								oninput="validity.valid||(value='0');"></td>
 							<td><input type="text" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="precio3"
 								disabled="disabled"></td>
-							<td><input type="text" class="form-controls1 form-control"
+							<td><input type="number" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="total3"
-								disabled="disabled"></td>
+								value="0" disabled="disabled"></td>
 						</tr>
 
 						<tr>
 							<th></th>
 							<td></td>
 							<td></td>
-							<td><input type="text" class="form-controls1 form-control"
+							<td></td>
+							<td><span class="input-group-text p-insertar"
+								id="inputGroup-sizing-default">Total compra</span></td>
+							<td><input type="number" class="form-controls1 form-control"
+								aria-label="Sizing example input"
+								aria-describedby="inputGroup-sizing-default" id="total4"
+								disabled="disabled"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><span class="input-group-text p-insertar"
+								id="inputGroup-sizing-default">Total iva</span></td>
+							<td><input type="number" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="totaliva"
 								disabled="disabled"></td>
-								
+						</tr>
+						<tr>
+							<th></th>
+							<td></td>
+							<td></td>
+							<td></td>
 							<td><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Total compra</span></td>
-							<td><input type="text" class="form-controls1 form-control"
+								id="inputGroup-sizing-default">Total con iva</span></td>
+							<td><input type="number" class="form-controls1 form-control"
 								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="total4"
+								aria-describedby="inputGroup-sizing-default" id="totalconiva"
+								disabled="disabled"></td>
+						</tr>
+						
+						<tr>
+							<th></th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><span class="input-group-text p-insertar"
+								id="inputGroup-sizing-default">Consec.</span></td>
+							<td><input type="number" class="form-controls1 form-control"
+								aria-label="Sizing example input"
+								aria-describedby="inputGroup-sizing-default" id="consec"
 								disabled="disabled"></td>
 						</tr>
 
@@ -237,15 +274,37 @@
 								</button>
 							</td>
 						</tr>
+						
+						<tr>
+							<td colspan="6">
+								<button type="button"
+									class="btn btn-success btn-card-enviar2 form"
+									onclick="guardar()">
+									<i class="fas fa-search"></i> Guardar
+								</button>
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="6">
+								<button type="reset"
+									class="btn btn-danger btn-card-enviar2 form">
+									<i class="fas fa-trash"></i> Limpiar celdas
+								</button>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</form>
 		</div>
 	</div>
 
-
-
-
+	<!--  
+			 <div class="input-group mb-3">
+		<span class="input-group-text p-insertar" id="inputGroup-sizing-default">Consec.</span>
+  		<input type="text" class="form-control form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="#s">
+	</div>
+		-->
 
 	<div class="card-buttons">
 
@@ -271,6 +330,8 @@
 		</button>
 	</div>
 	<script>
+	
+	
 		function enviar() {
 
 			var req = new XMLHttpRequest();
@@ -293,7 +354,6 @@
 
 			if (cliente.toString() != "") {
 				document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
-				document.getElementById("cedula_buscar").value = "";
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
 
@@ -409,45 +469,144 @@
 
 		//--------------------     Calcular productos		----------------------------- //
 		function calcular1() {
-			
+
 			var cantidad1 = parseInt(document.getElementById("cantidad1").value);
 			var precio1 = parseInt(document.getElementById("precio1").value);
 			var total1 = cantidad1 * precio1;
 			document.getElementById("total1").value = total1;
-			
+
 			var cantidad2 = parseInt(document.getElementById("cantidad2").value);
 			var precio2 = parseInt(document.getElementById("precio2").value);
-			var total2 = cantidad2 * precio2;	
+			var total2 = cantidad2 * precio2;
 			document.getElementById("total2").value = total2;
-			
+
 			var cantidad3 = parseInt(document.getElementById("cantidad3").value);
 			var precio3 = parseInt(document.getElementById("precio3").value);
 			var total3 = cantidad3 * precio3;
 			document.getElementById("total3").value = total3;
-			
-			
-	//		if(total1.length != 0){
-	//			var total4 = total1;
-	//			document.getElementById("total4").value = total4;
-	//			
-	//		}else if (total2.length != 0){
-	//			alert("hola");
-	//			var total4 = total1 + total2;
-	//			document.getElementById("total4").value = total4;
-	//		}
-			
-				
-			
-			var total4 = total1 + total2 + total3;
-			document.getElementById("total4").value = total4;
-			
+
+			if (document.getElementById("total1").value.length != 0
+					&& document.getElementById("total2").value.length == 0
+					&& document.getElementById("total3").value.length == 0) {
+				document.getElementById("total4").value = total1;
+				alert("primer if 1 valores");
+
+			} else if (document.getElementById("total1").value.length != 0
+					&& document.getElementById("total2").value.length != 0
+					&& document.getElementById("total3").value.length == 0) {
+				var suma = total1 + total2;
+				document.getElementById("total4").value = suma;
+				alert("segundo if 2 valores");
+
+			} else if (document.getElementById("total1").value.length != 0
+					&& document.getElementById("total2").value.length != 0
+					&& document.getElementById("total3").value.length != 0) {
+				var suma = total1 + total2 + total3;
+				document.getElementById("total4").value = suma;
+				alert("tercer if 2 valores");
+
+			} else if (document.getElementById("total1").value.length != 0
+					&& document.getElementById("total2").value.length == 0
+					&& document.getElementById("total3").value.length != 0) {
+				var suma = total1 + total3;
+				document.getElementById("total4").value = suma;
+				alert("cuarto if 2 valores");
+
+			} else if (document.getElementById("total1").value.length == 0
+					&& document.getElementById("total2").value.length != 0
+					&& document.getElementById("total3").value.length != 0) {
+				var suma = total2 + total3;
+				document.getElementById("total4").value = suma;
+				alert("quinto if 2 valores");
+			}
+
+			else if (document.getElementById("total1").value.length == 0
+					&& document.getElementById("total2").value.length != 0
+					&& document.getElementById("total3").value.length == 0) {
+				document.getElementById("total4").value = total2;
+				alert("sext if 2 valores");
+			}
+
+			else if (document.getElementById("total1").value.length == 0
+					&& document.getElementById("total2").value.length == 0
+					&& document.getElementById("total3").value.length != 0) {
+				document.getElementById("total4").value = total3;
+				alert("septimo if 2 valores");
+			}
+
+			var total4 = parseInt(document.getElementById("total4").value);
 			var iva = parseInt(document.getElementById("totaliva").value);
 			var totaliva = total4 * .19;
+			totaliva = totaliva.toFixed(1);
 			document.getElementById("totaliva").value = totaliva;
+
+			var total5 = parseInt(document.getElementById("totalconiva").value);
+			total5 = (Number(total4)) + (Number(totaliva));
+			total5 = total5.toFixed(1);
+			document.getElementById("totalconiva").value = total5;
+
 			
-		
+			
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			req.open('GET', 'http://localhost:8080/consultarconsecutivo', false);
+			req.send(null);
+			var consecutivo = null;
+			if (req.status == 200)
+				consecutivo = JSON.parse(req.responseText);
+			console.log(JSON.parse(req.responseText));
+
+			var element = document.getElementById("error1");
+			element.classList.add("visually-hidden");
+			var element2 = document.getElementById("correcto");
+			element2.classList.remove("visually-hidden");
+			console.log(consecutivo.toString());
+
+			if (consecutivo.toString() != "") {
+				document.getElementById("consec").value = consecutivo[0].codigo_venta;
+				var element = document.getElementById("error");
+				element.classList.add("visually-hidden");
+				var cons = parseInt(document.getElementById("consec").value);
+				cons = cons + 1;
+				document.getElementById("consec").value = cons;
+				
+			} else {
+				var element = document.getElementById("error");
+				element.classList.remove("visually-hidden");
+
+			}
+			
+				
 		}
 		
+		
+		function guardar() {
+			
+				var formData = new FormData();
+	 			formData.append("codigo_venta", document.getElementById("consec").value);
+	 			formData.append("cedula_cliente", document.getElementById("cedula_buscar").value);
+	 			formData.append("cedula_usuario", document.getElementById("cedula_usuario").value);
+	 			formData.append("ivaventa",document.getElementById("totaliva").value);
+	 			formData.append("total_venta",document.getElementById("total4").value);
+	 			formData.append("valor_venta",document.getElementById("totalconiva").value);
+	 			var xhr = new XMLHttpRequest();
+	 			xhr.open("POST", "http://localhost:8080/registrarventa");
+	 			
+				var element = document.getElementById("error");
+				element.classList.add("visually-hidden");
+				var element2 = document.getElementById("correcto");
+				element2.classList.remove("visually-hidden");
+				
+				document.getElementById("consec").value = "";
+				document.getElementById("cedula_buscar").value = "";
+				document.getElementById("cedula_usuario").value = "";
+				document.getElementById("totaliva").value = "";
+				document.getElementById("total4").value = "";
+				document.getElementById("totalconiva").value = "";
+	 			xhr.send(formData);
+
+			
+		}
 		
 	</script>
 </body>
