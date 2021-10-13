@@ -20,7 +20,7 @@ public class VentaDAO {
 			Statement estatuto = conex.getConnection().createStatement();
 
 			// String que contiene la sentencia insert a ejecutar
-			String sentencia = "INSERT INTO ventas VALUES(" + ventas.getCodigo_venta() + ","
+			String sentencia = "INSERT INTO ventas VALUES(null," 
 					+ ventas.getCedula_cliente() + "," + ventas.getCedula_usuario() + ",'" + ventas.getIvaventa() + "',"
 					+ ventas.getTotal_venta() + "," + ventas.getValor_venta() + "" + ");";
 

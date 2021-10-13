@@ -464,49 +464,48 @@
 					&& document.getElementById("total2").value.length == 0
 					&& document.getElementById("total3").value.length == 0) {
 				document.getElementById("total4").value = total1;
-				alert("primer if 1 valores");
+				
 
 			} else if (document.getElementById("total1").value.length != 0
 					&& document.getElementById("total2").value.length != 0
 					&& document.getElementById("total3").value.length == 0) {
 				var suma = total1 + total2;
 				document.getElementById("total4").value = suma;
-				alert("segundo if 2 valores");
+				
 
 			} else if (document.getElementById("total1").value.length != 0
 					&& document.getElementById("total2").value.length != 0
 					&& document.getElementById("total3").value.length != 0) {
 				var suma = total1 + total2 + total3;
 				document.getElementById("total4").value = suma;
-				alert("tercer if 2 valores");
+			
 
 			} else if (document.getElementById("total1").value.length != 0
 					&& document.getElementById("total2").value.length == 0
 					&& document.getElementById("total3").value.length != 0) {
 				var suma = total1 + total3;
 				document.getElementById("total4").value = suma;
-				alert("cuarto if 2 valores");
+				
 
 			} else if (document.getElementById("total1").value.length == 0
 					&& document.getElementById("total2").value.length != 0
 					&& document.getElementById("total3").value.length != 0) {
 				var suma = total2 + total3;
 				document.getElementById("total4").value = suma;
-				alert("quinto if 2 valores");
+				
 			}
 
 			else if (document.getElementById("total1").value.length == 0
 					&& document.getElementById("total2").value.length != 0
 					&& document.getElementById("total3").value.length == 0) {
 				document.getElementById("total4").value = total2;
-				alert("sext if 2 valores");
+				
 			}
 
 			else if (document.getElementById("total1").value.length == 0
 					&& document.getElementById("total2").value.length == 0
 					&& document.getElementById("total3").value.length != 0) {
 				document.getElementById("total4").value = total3;
-				alert("septimo if 2 valores");
 			}
 
 			var total4 = parseInt(document.getElementById("total4").value);
