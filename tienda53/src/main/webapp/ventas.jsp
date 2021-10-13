@@ -70,8 +70,8 @@
 
 				<div class="input-group mb-3">
 					<span class="input-group-text p-insertar"
-						id="inputGroup-sizing-default">Cédula usuario</span> <input type="text"
-						class="form-control" aria-label="Sizing example input"
+						id="inputGroup-sizing-default">Cédula usuario</span> <input
+						type="text" class="form-control" aria-label="Sizing example input"
 						aria-describedby="inputGroup-sizing-default" required
 						id="cedula_usuario">
 				</div>
@@ -100,7 +100,7 @@
 
 
 				<table class="table align-middle table table-borderless">
-					
+
 					<thead>
 						<tr>
 							<th scope="col"><span class="input-group-text p-insertar"
@@ -115,10 +115,10 @@
 							<th scope="col"><span class="input-group-text p-insertar"
 								id="inputGroup-sizing-default">Vlr.total</span></th>
 						</tr>
-						</thead>
-						
-						
-						<tbody>
+					</thead>
+
+
+					<tbody>
 						<tr>
 							<th scope="row"><input type="text"
 								class="form-controls1 form-control"
@@ -139,7 +139,7 @@
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="cantidad1"
 								min="0" max="100" value="0"
-								oninput="validity.valid||(value='0');"></td>
+								oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
 							<td><input type="text" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="precio1"
@@ -171,7 +171,7 @@
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="cantidad2"
 								min="0" max="100" value="0"
-								oninput="validity.valid||(value='0');"></td>
+								oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
 							<td><input type="text" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="precio2"
@@ -204,7 +204,7 @@
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="cantidad3"
 								min="0" maxlength="100" value="0"
-								oninput="validity.valid||(value='0');"></td>
+								oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
 							<td><input type="text" class="form-controls1 form-control"
 								aria-label="Sizing example input"
 								aria-describedby="inputGroup-sizing-default" id="precio3"
@@ -251,7 +251,7 @@
 								aria-describedby="inputGroup-sizing-default" id="totalconiva"
 								disabled="disabled"></td>
 						</tr>
-						
+
 						<tr>
 							<th></th>
 							<td></td>
@@ -274,7 +274,7 @@
 								</button>
 							</td>
 						</tr>
-						
+
 						<tr>
 							<td colspan="6">
 								<button type="button"
@@ -284,7 +284,7 @@
 								</button>
 							</td>
 						</tr>
-						
+
 						<tr>
 							<td colspan="6">
 								<button type="reset"
@@ -306,32 +306,7 @@
 	</div>
 		-->
 
-	<div class="card-buttons">
-
-		<button type="button" class="btn btn-success btn-card-footer"
-			onclick="window.location.href='/insertarclientes.jsp'">
-			<i class="fas fa-plus-circle"></i> Agregar cliente
-		</button>
-		<button type="button" class="btn btn-danger btn-card-footer"
-			onclick="window.location.href='/eliminarcliente.jsp'">
-			<i class="fas fa-trash"></i> Eliminar cliente
-		</button>
-		<button type="button" class="btn btn-warning btn-card-footer"
-			onclick="window.location.href='/actualizarcliente.jsp'">
-			<i class="fas fa-pen-alt"></i> Actualizar cliente
-		</button>
-		<button type="button" class="btn btn-primary btn-card-footer"
-			onclick="window.location.href='/buscarcliente.jsp'">
-			<i class="fas fa-search"></i> Buscar un cliente
-		</button>
-		<button type="button" class="btn btn-info btn-card-footer"
-			onclick="window.location.href='/listaclientes.jsp'">
-			<i class="fas fa-clipboard-list"></i> Listar todos los clientes
-		</button>
-	</div>
 	<script>
-	
-	
 		function enviar() {
 
 			var req = new XMLHttpRequest();
@@ -545,11 +520,11 @@
 			total5 = total5.toFixed(1);
 			document.getElementById("totalconiva").value = total5;
 
-			
-			
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/consultarconsecutivo', false);
+			req
+					.open('GET', 'http://localhost:8080/consultarconsecutivo',
+							false);
 			req.send(null);
 			var consecutivo = null;
 			if (req.status == 200)
@@ -569,45 +544,47 @@
 				var cons = parseInt(document.getElementById("consec").value);
 				cons = cons + 1;
 				document.getElementById("consec").value = cons;
-				
+
 			} else {
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 
 			}
-			
-				
-		}
-		
-		
-		function guardar() {
-			
-				var formData = new FormData();
-	 			formData.append("codigo_venta", document.getElementById("consec").value);
-	 			formData.append("cedula_cliente", document.getElementById("cedula_buscar").value);
-	 			formData.append("cedula_usuario", document.getElementById("cedula_usuario").value);
-	 			formData.append("ivaventa",document.getElementById("totaliva").value);
-	 			formData.append("total_venta",document.getElementById("total4").value);
-	 			formData.append("valor_venta",document.getElementById("totalconiva").value);
-	 			var xhr = new XMLHttpRequest();
-	 			xhr.open("POST", "http://localhost:8080/registrarventa");
-	 			
-				var element = document.getElementById("error");
-				element.classList.add("visually-hidden");
-				var element2 = document.getElementById("correcto");
-				element2.classList.remove("visually-hidden");
-				
-				document.getElementById("consec").value = "";
-				document.getElementById("cedula_buscar").value = "";
-				document.getElementById("cedula_usuario").value = "";
-				document.getElementById("totaliva").value = "";
-				document.getElementById("total4").value = "";
-				document.getElementById("totalconiva").value = "";
-	 			xhr.send(formData);
 
-			
 		}
-		
+
+		function guardar() {
+
+			var formData = new FormData();
+			formData.append("codigo_venta",
+					document.getElementById("consec").value);
+			formData.append("cedula_cliente", document
+					.getElementById("cedula_buscar").value);
+			formData.append("cedula_usuario", document
+					.getElementById("cedula_usuario").value);
+			formData.append("ivaventa",
+					document.getElementById("totaliva").value);
+			formData.append("total_venta",
+					document.getElementById("total4").value);
+			formData.append("valor_venta", document
+					.getElementById("totalconiva").value);
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "http://localhost:8080/registrarventa");
+
+			var element = document.getElementById("error");
+			element.classList.add("visually-hidden");
+			var element2 = document.getElementById("correcto");
+			element2.classList.remove("visually-hidden");
+
+			document.getElementById("consec").value = "";
+			document.getElementById("cedula_buscar").value = "";
+			document.getElementById("cedula_usuario").value = "";
+			document.getElementById("totaliva").value = "";
+			document.getElementById("total4").value = "";
+			document.getElementById("totalconiva").value = "";
+			xhr.send(formData);
+
+		}
 	</script>
 </body>
 </html>
