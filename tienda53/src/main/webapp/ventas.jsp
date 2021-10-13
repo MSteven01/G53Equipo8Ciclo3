@@ -17,37 +17,11 @@
 	crossorigin="anonymous">
 <link href="cventas.css" rel="stylesheet" type="text/css" />
 </head>
-
-
 <body>
 
-
 	<header>
-		<nav class="navbar navbar-dark bg-dark navbar-expand-lg border-nav">
-			<div class="container-fluid div-navbar">
-				<a class="navbar-brand" href="#"> <i
-					class="fas fa-store icon-nav"></i> Market SuDespensa.com
-				</a>
-			</div>
-		</nav>
-		<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-			<div class="navbar-nav">
-				<a class="navbar-brand" href="listausuarios.jsp"><i
-					class="fas fa-users icon-nav"></i>Usuarios</a> <a class="navbar-brand"
-					href="listaclientes.jsp"><i
-					class="far fa-address-card icon-nav"></i>Clientes</a> <a
-					class="navbar-brand" href="listaproveedores.jsp"><i
-					class="fas fa-truck icon-nav"></i>Proveedores</a> <a
-					class="navbar-brand" href="insertarproducto.jsp"><i
-					class="fas fa-box-open icon-nav"></i>Productos</a> <a
-					class="navbar-brand" href="#"><i
-					class="fas fa-file-invoice-dollar icon-nav"></i>Ventas</a> <a
-					class="navbar-brand" href="#"><i
-					class="fas fa-clipboard-list icon-nav"></i>Reportes</a>
-			</div>
-		</nav>
+		<div w3-include-html="/../snippets/sidenav.html"></div>
 	</header>
-
 
 
 	<div class="card-login col-auto">
@@ -55,8 +29,8 @@
 
 		<div class="box-cliente">
 			<form action="form1">
-				<div id="error1" class="alert alert-danger visually-hidden"
-					role="alert">Error al buscar el cliente, el cliente no existe</div>
+				<div id="errorproducto" class="alert alert-danger visually-hidden"
+					role="alert">Error al buscar producto.</div>
 				<div id="correcto" role="alert"></div>
 				<div id="error" class="alert alert-danger visually-hidden"
 					role="alert">Error al buscar el cliente, el cliente no existe</div>
@@ -97,204 +71,215 @@
 
 
 
+				<div class="table-responsive-md-sm-lg-xl-xxl">
+					<table
+						class="table align-middle table table-borderless">
+
+						<thead>
+							<tr>
+								<th scope="col"><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Cod Producto</span></th>
+								<th scope="col"></th>
+								<th scope="col"><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Nombre Producto</span></th>
+								<th scope="col"><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Cantidad</span></th>
+								<th scope="col"><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Vlr.unidad</span></th>
+								<th scope="col"><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Vlr.total</span></th>
+							</tr>
+						</thead>
 
 
-				<table class="table align-middle table table-borderless">
+						<tbody>
+							<tr>
+								<th scope="row"><input type="text"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" required
+									id="codigo_buscar"></th>
+								<td><button type="button"
+										class="btn btn-success btn-card-enviar1 form"
+										onclick="bucarproducto()">
+										<i class="fas fa-search"></i> Consultar
+									</button></td>
+								<td><input type="text" class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="nombre_producto" disabled="disabled"></td>
 
-					<thead>
-						<tr>
-							<th scope="col"><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Cod Producto</span></th>
-							<th scope="col"></th>
-							<th scope="col"><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Nombre Producto</span></th>
-							<th scope="col"><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Cantidad</span></th>
-							<th scope="col"><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Vlr.unidad</span></th>
-							<th scope="col"><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Vlr.total</span></th>
-						</tr>
-					</thead>
-
-
-					<tbody>
-						<tr>
-							<th scope="row"><input type="text"
-								class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" required
-								id="codigo_buscar"></th>
-							<td><button type="button"
-									class="btn btn-success btn-card-enviar1 form"
-									onclick="bucarproducto()">
-									<i class="fas fa-search"></i> Consultar
-								</button></td>
-							<td><input type="text" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default"
-								id="nombre_producto" disabled="disabled"></td>
-
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="cantidad1"
-								min="0" max="100" value="0"
-								oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
-							<td><input type="text" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="precio1"
-								disabled="disabled"></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="cantidad1"
+									min="0" max="100" value="0"
+									oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
+								<td><input type="text" class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="precio1"
+									disabled="disabled"></td>
 
 
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="total1" min="0"
-								value="0" disabled="disabled"></td>
-						</tr>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="total1"
+									min="0" value="0" disabled="disabled"></td>
+							</tr>
 
-						<tr>
-							<th scope="row"><input type="text"
-								class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" required
-								id="codigo_buscar2"></th>
-							<td><button type="button"
-									class="btn btn-success btn-card-enviar1 form"
-									onclick="bucarproducto2()">
-									<i class="fas fa-search"></i> Consultar
-								</button></td>
-							<td><input type="text" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default"
-								id="nombre_producto2" disabled="disabled"></td>
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="cantidad2"
-								min="0" max="100" value="0"
-								oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
-							<td><input type="text" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="precio2"
-								disabled="disabled"></td>
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="total2"
-								value="0" disabled="disabled"></td>
-						</tr>
+							<tr>
+								<th scope="row"><input type="text"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" required
+									id="codigo_buscar2"></th>
+								<td><button type="button"
+										class="btn btn-success btn-card-enviar1 form"
+										onclick="bucarproducto2()">
+										<i class="fas fa-search"></i> Consultar
+									</button></td>
+								<td><input type="text" class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="nombre_producto2" disabled="disabled"></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="cantidad2"
+									min="0" max="100" value="0"
+									oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
+								<td><input type="text" class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="precio2"
+									disabled="disabled"></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="total2"
+									value="0" disabled="disabled"></td>
+							</tr>
 
 
 
 
-						<tr>
-							<th scope="row"><input type="text"
-								class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" required
-								id="codigo_buscar3"></th>
-							<td><button type="button"
-									class="btn btn-success btn-card-enviar1 form"
-									onclick="bucarproducto3()">
-									<i class="fas fa-search"></i> Consultar
-								</button></td>
-							<td><input type="text" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default"
-								id="nombre_producto3" disabled="disabled"></td>
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="cantidad3"
-								min="0" maxlength="100" value="0"
-								oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
-							<td><input type="text" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="precio3"
-								disabled="disabled"></td>
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="total3"
-								value="0" disabled="disabled"></td>
-						</tr>
+							<tr>
+								<th scope="row"><input type="text"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" required
+									id="codigo_buscar3"></th>
+								<td><button type="button"
+										class="btn btn-success btn-card-enviar1 form"
+										onclick="bucarproducto3()">
+										<i class="fas fa-search"></i> Consultar
+									</button></td>
+								<td><input type="text" class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="nombre_producto3" disabled="disabled"></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="cantidad3"
+									min="0" maxlength="100" value="0"
+									oninput="validity.valid||(value='0');" onchange="calcular1()"></td>
+								<td><input type="text" class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="precio3"
+									disabled="disabled"></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="total3"
+									value="0" disabled="disabled"></td>
+							</tr>
 
-						<tr>
-							<th></th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Total compra</span></td>
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="total4"
-								disabled="disabled"></td>
-						</tr>
-						<tr>
-							<th></th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Total iva</span></td>
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="totaliva"
-								disabled="disabled"></td>
-						</tr>
-						<tr>
-							<th></th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Total con iva</span></td>
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="totalconiva"
-								disabled="disabled"></td>
-						</tr>
+							<tr>
+								<th></th>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Total compra</span></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="total4"
+									disabled="disabled"></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Total iva</span></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="totaliva"
+									disabled="disabled"></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Total con iva</span></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="totalconiva"
+									disabled="disabled"></td>
+							</tr>
 
-						<tr>
-							<th></th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td><span class="input-group-text p-insertar"
-								id="inputGroup-sizing-default">Consec.</span></td>
-							<td><input type="number" class="form-controls1 form-control"
-								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" id="consec"
-								disabled="disabled"></td>
-						</tr>
+							<tr>
+								<th></th>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><span class="input-group-text p-insertar"
+									id="inputGroup-sizing-default">Consec.</span></td>
+								<td><input type="number"
+									class="form-controls1 form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" id="consec"
+									disabled="disabled"></td>
+							</tr>
 
-						<tr>
-							<td colspan="6">
-								<button type="button"
-									class="btn btn-success btn-card-enviar2 form"
-									onclick="calcular1()">
-									<i class="fas fa-search"></i> Calcular valor total
-								</button>
-							</td>
-						</tr>
+							<tr>
+								<td colspan="6">
+									<button type="button"
+										class="btn btn-success btn-card-enviar2 form"
+										onclick="calcular1()">
+										<i class="fas fa-search"></i> Calcular valor total
+									</button>
+								</td>
+							</tr>
 
-						<tr>
-							<td colspan="6">
-								<button type="button"
-									class="btn btn-success btn-card-enviar2 form"
-									onclick="guardar()">
-									<i class="fas fa-search"></i> Guardar
-								</button>
-							</td>
-						</tr>
+							<tr>
+								<td colspan="6">
+									<button type="button"
+										class="btn btn-success btn-card-enviar2 form"
+										onclick="guardar()">
+										<i class="fas fa-search"></i> Guardar
+									</button>
+								</td>
+							</tr>
 
-						<tr>
-							<td colspan="6">
-								<button type="reset"
-									class="btn btn-danger btn-card-enviar2 form">
-									<i class="fas fa-trash"></i> Limpiar celdas
-								</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+							<tr>
+								<td colspan="6">
+									<button type="reset"
+										class="btn btn-danger btn-card-enviar2 form">
+										<i class="fas fa-trash"></i> Limpiar celdas
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -305,6 +290,13 @@
   		<input type="text" class="form-control form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required id="#s">
 	</div>
 		-->
+
+	<script src="js/scripts.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
 
 	<script>
 		function enviar() {
@@ -321,7 +313,7 @@
 				cliente = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			var element = document.getElementById("error1");
+			var element = document.getElementById("errorproducto");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("correcto");
 			element2.classList.remove("visually-hidden");
@@ -353,7 +345,7 @@
 				producto = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			var element = document.getElementById("error1");
+			var element = document.getElementById("errorproducto");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("correcto");
 			element2.classList.remove("visually-hidden");
@@ -364,11 +356,11 @@
 				document.getElementById("precio1").value = producto[0].precio_venta;
 				document.getElementById("totaliva").value = producto[0].iva_compra;
 				document.getElementById("codigo_buscar").value = "";
-				var element = document.getElementById("error");
+				var element = document.getElementById("errorproducto");
 				element.classList.add("visually-hidden");
 
 			} else {
-				var element = document.getElementById("error");
+				var element = document.getElementById("errorproducto");
 				element.classList.remove("visually-hidden");
 
 			}
@@ -388,7 +380,7 @@
 				producto = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			var element = document.getElementById("error1");
+			var element = document.getElementById("errorproducto");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("correcto");
 			element2.classList.remove("visually-hidden");
@@ -398,11 +390,11 @@
 				document.getElementById("nombre_producto2").value = producto[0].nombre_producto;
 				document.getElementById("precio2").value = producto[0].precio_venta;
 				document.getElementById("codigo_buscar2").value = "";
-				var element = document.getElementById("error");
+				var element = document.getElementById("errorproducto");
 				element.classList.add("visually-hidden");
 
 			} else {
-				var element = document.getElementById("error");
+				var element = document.getElementById("errorproducto");
 				element.classList.remove("visually-hidden");
 
 			}
@@ -422,7 +414,7 @@
 				producto = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			var element = document.getElementById("error1");
+			var element = document.getElementById("errorproducto");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("correcto");
 			element2.classList.remove("visually-hidden");
@@ -432,11 +424,11 @@
 				document.getElementById("nombre_producto3").value = producto[0].nombre_producto;
 				document.getElementById("precio3").value = producto[0].precio_venta;
 				document.getElementById("codigo_buscar3").value = "";
-				var element = document.getElementById("error");
+				var element = document.getElementById("errorproducto");
 				element.classList.add("visually-hidden");
 
 			} else {
-				var element = document.getElementById("error");
+				var element = document.getElementById("errorproducto");
 				element.classList.remove("visually-hidden");
 
 			}
@@ -464,42 +456,38 @@
 					&& document.getElementById("total2").value.length == 0
 					&& document.getElementById("total3").value.length == 0) {
 				document.getElementById("total4").value = total1;
-				
 
 			} else if (document.getElementById("total1").value.length != 0
 					&& document.getElementById("total2").value.length != 0
 					&& document.getElementById("total3").value.length == 0) {
 				var suma = total1 + total2;
 				document.getElementById("total4").value = suma;
-				
 
 			} else if (document.getElementById("total1").value.length != 0
 					&& document.getElementById("total2").value.length != 0
 					&& document.getElementById("total3").value.length != 0) {
 				var suma = total1 + total2 + total3;
 				document.getElementById("total4").value = suma;
-			
 
 			} else if (document.getElementById("total1").value.length != 0
 					&& document.getElementById("total2").value.length == 0
 					&& document.getElementById("total3").value.length != 0) {
 				var suma = total1 + total3;
 				document.getElementById("total4").value = suma;
-				
 
 			} else if (document.getElementById("total1").value.length == 0
 					&& document.getElementById("total2").value.length != 0
 					&& document.getElementById("total3").value.length != 0) {
 				var suma = total2 + total3;
 				document.getElementById("total4").value = suma;
-				
+
 			}
 
 			else if (document.getElementById("total1").value.length == 0
 					&& document.getElementById("total2").value.length != 0
 					&& document.getElementById("total3").value.length == 0) {
 				document.getElementById("total4").value = total2;
-				
+
 			}
 
 			else if (document.getElementById("total1").value.length == 0
@@ -530,7 +518,7 @@
 				consecutivo = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
 
-			var element = document.getElementById("error1");
+			var element = document.getElementById("errorproducto");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("correcto");
 			element2.classList.remove("visually-hidden");

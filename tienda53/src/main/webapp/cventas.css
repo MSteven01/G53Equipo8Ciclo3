@@ -29,7 +29,7 @@ body {
 
 .card-login {
 	padding: 10px;
-	width: 90%;
+	width: max-content;
 	height: max-content;
 	margin: auto;
 	margin-top: 3%;

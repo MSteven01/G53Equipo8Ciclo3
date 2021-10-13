@@ -23,37 +23,8 @@
 
 
 	<header>
-		<nav class="navbar navbar-dark bg-dark navbar-expand-lg border-nav">
-			<div class="container-fluid div-navbar">
-				<a class="navbar-brand" href="#"> <i
-					class="fas fa-store icon-nav"></i> Market SuDespensa.com
-				</a>
-			</div>
-		</nav>
-		<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-			<div class="navbar-nav">
-				<a class="navbar-brand" href="listausuarios.jsp"><i
-					class="fas fa-users icon-nav"></i>Usuarios</a> <a class="navbar-brand"
-					href="listaclientes.jsp"><i
-					class="far fa-address-card icon-nav"></i>Clientes</a> <a
-					class="navbar-brand" href="listaproveedores.jsp"><i
-					class="fas fa-truck icon-nav"></i>Proveedores</a> <a
-					class="navbar-brand" href="insertarproducto.jsp"><i
-					class="fas fa-box-open icon-nav"></i>Productos</a> <a
-					class="navbar-brand" href="#"><i
-					class="fas fa-file-invoice-dollar icon-nav"></i>Ventas</a> <a
-					class="navbar-brand" href="#"><i
-					class="fas fa-clipboard-list icon-nav"></i>Reportes</a>
-			</div>
-		</nav>
+		<div w3-include-html="/../snippets/sidenav.html"></div>
 	</header>
-
-
-
-
-
-
-
 
 	<div class="card-login">
 		<h1>Buscar Proveedor</h1>
@@ -129,6 +100,11 @@
 		</button>
 	</div>
 
+	<script src="js/scripts.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
 
 
 	<script>
