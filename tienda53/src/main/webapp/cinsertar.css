@@ -17,7 +17,9 @@ body {
 	margin-right: 15px;
 	color: rgba(168, 128, 18, 0.877);
 }
-
+.navbar-nav{
+	margin-left: 10px;
+}
 .navbar-brand {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	font-size: 20px;
@@ -26,16 +28,6 @@ body {
 .card-login {
 	padding: 10px;
 	width: 380px;
-	height: auto;
-	margin: auto;
-	margin-top: 3%;
-	border-radius: 8px;
-	background-color: rgb(45 45 45/ 76%);
-}
-
-.card-login2 {
-	padding: 10px;
-	width: 90%;
 	height: auto;
 	margin: auto;
 	margin-top: 3%;
@@ -72,8 +64,6 @@ body {
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
-
-
 
 .btn-login-ingresar {
 	border-radius: 5px;
