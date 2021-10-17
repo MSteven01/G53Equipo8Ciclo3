@@ -16,7 +16,41 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link href="cventas.css" rel="stylesheet" type="text/css" />
+<script>
+	window.onload = function() {
+		var req = new XMLHttpRequest();
+		var coincidencia = false;
+		req.open('GET', 'http://localhost:8080/consultarconsecutivo', false);
+		req.send(null);
+		var consecutivo = null;
+		if (req.status == 200)
+			consecutivo = JSON.parse(req.responseText);
+		console.log(JSON.parse(req.responseText));
+
+		var element = document.getElementById("errorproducto");
+		element.classList.add("visually-hidden");
+		var element2 = document.getElementById("correcto");
+		element2.classList.remove("visually-hidden");
+		console.log(consecutivo.toString());
+
+		if (consecutivo.toString() != "") {
+			document.getElementById("consec").value = consecutivo[0].codigo_venta;
+			var element = document.getElementById("errorconsec");
+			element.classList.add("visually-hidden");
+			var cons = parseInt(document.getElementById("consec").value);
+			cons = cons + 1;
+			document.getElementById("consec").value = cons;
+
+		} else {
+			var element = document.getElementById("errorconsec");
+			element.classList.remove("visually-hidden");
+
+		}
+
+	}
+</script>
 </head>
+
 <body>
 
 	<header>
@@ -28,52 +62,79 @@
 		<h1>Ventas</h1>
 
 		<div class="box-cliente">
+
 			<form action="form1">
+
+
 				<div id="errorproducto" class="alert alert-danger visually-hidden"
 					role="alert">Error al buscar producto.</div>
 				<div id="correcto" role="alert"></div>
 				<div id="error" class="alert alert-danger visually-hidden"
 					role="alert">Error al buscar el cliente, el cliente no existe</div>
+				<div id="errorconsec" class="alert alert-danger visually-hidden"
+					role="alert">Error al cargar el consecutivo. Recargue la
+					pagina</div>
+				<div id="errorventa" class="alert alert-danger visually-hidden"
+					role="alert">Error al registrar venta</div>
+				<div id="correcto" class="alert alert-success visually-hidden"
+					role="alert">Venta registrada</div>
 
-				<div id="f" class="alert alert-danger visually-hidden" role="alert">
-					<input type="number" class="form-controls1 form-control"
-						aria-label="Sizing example input"
-						aria-describedby="inputGroup-sizing-default" id="iva">
+
+				<div class="row ">
+					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-5">
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text p-insertar" id="basic-addon1">Consecutivo</span>
+							<input type="text" class="form-control" readonly="readonly"
+								id="consec">
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row ">
+					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-5">
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text"><i id="checkusuario"
+								class="fas fa-times text-danger"></i></span><span
+								class="input-group-text p-insertar" id="basic-addon1">Cedula
+								usuario</span><input type="text" class="form-control"
+								id="cedula_usuario" oninput="enviarusuario()">
+						</div>
+					</div>
+					<div class="col-xl-9 col-lg-8 col-md-8 col-sm-7">
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text p-insertar" id="basic-addon1">Nombre</span>
+							<input type="text" class="form-control" readonly="readonly"
+								id="nombre_usuario">
+						</div>
+					</div>
 				</div>
 
 
-				<div class="input-group mb-3">
-					<span class="input-group-text p-insertar"
-						id="inputGroup-sizing-default">Cédula usuario</span> <input
-						type="text" class="form-control" aria-label="Sizing example input"
-						aria-describedby="inputGroup-sizing-default" required
-						id="cedula_usuario">
+				<div class="row ">
+					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-5">
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text"> <i id="checkcliente"
+								class="fas fa-times text-danger"></i></span> <span
+								class="input-group-text p-insertar" id="basic-addon1">Cedula
+								cliente</span> <input type="text" class="form-control"
+								id="cedula_buscar" oninput="enviar()">
+						</div>
+					</div>
+					<div class="col-xl-9 col-lg-8 col-md-8 col-sm-7">
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text p-insertar" id="basic-addon1">Nombre</span>
+							<input type="text" class="form-control" readonly="readonly"
+								id="nombre_cliente">
+						</div>
+					</div>
 				</div>
 
-
-				<div class="input-group mb-3">
-					<span class="input-group-text p-insertar"
-						id="inputGroup-sizing-default">Cédula</span> <input type="text"
-						class="form-control" aria-label="Sizing example input"
-						aria-describedby="inputGroup-sizing-default" required
-						id="cedula_buscar">
-					<button type="button" class="btn btn-success btn-card-enviar form"
-						onclick="enviar()">
-						<i class="fas fa-search"></i> Consultar
-					</button>
-					<span class="input-group-text p-insertar"
-						id="inputGroup-sizing-default">Nombre</span> <input type="text"
-						class="form-controls form-control"
-						aria-label="Sizing example input"
-						aria-describedby="inputGroup-sizing-default" id="nombre_cliente"
-						disabled="disabled">
-				</div>
 
 
 
 				<div class="table-responsive-md-sm-lg-xl-xxl">
-					<table
-						class="table align-middle table table-borderless">
+					<table class="table align-middle table table-borderless">
 
 						<thead>
 							<tr>
@@ -234,21 +295,6 @@
 									aria-describedby="inputGroup-sizing-default" id="totalconiva"
 									disabled="disabled"></td>
 							</tr>
-
-							<tr>
-								<th></th>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><span class="input-group-text p-insertar"
-									id="inputGroup-sizing-default">Consec.</span></td>
-								<td><input type="number"
-									class="form-controls1 form-control"
-									aria-label="Sizing example input"
-									aria-describedby="inputGroup-sizing-default" id="consec"
-									disabled="disabled"></td>
-							</tr>
-
 							<tr>
 								<td colspan="6">
 									<button type="button"
@@ -301,36 +347,61 @@
 	<script>
 		function enviar() {
 
+			var client = document.getElementById("cedula_buscar").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			var ced_bus = document.getElementById("cedula_buscar").value;
 			req.open('GET',
 					'http://localhost:8080/consultarcliente?cedula_cliente='
-							+ ced_bus, false);
+							+ client, false);
 			req.send(null);
 			var cliente = null;
 			if (req.status == 200)
 				cliente = JSON.parse(req.responseText);
-			console.log(JSON.parse(req.responseText));
+			console.log(cliente);
 
-			var element = document.getElementById("errorproducto");
-			element.classList.add("visually-hidden");
-			var element2 = document.getElementById("correcto");
-			element2.classList.remove("visually-hidden");
-			console.log(cliente.toString());
-
+			var icono = document.getElementById("checkcliente");
 			if (cliente.toString() != "") {
+
 				document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
-				var element = document.getElementById("error");
-				element.classList.add("visually-hidden");
+
+				icono.classList.replace("text-danger", "text-success");
+				icono.classList.replace("fa-times", "fa-check");
 
 			} else {
-				var element = document.getElementById("error");
-				element.classList.remove("visually-hidden");
+				document.getElementById("nombre_cliente").value = "";
+				icono.classList.replace("text-success", "text-danger");
+				icono.classList.replace("fa-check", "fa-times");
+			}
 
+		}
+		//
+
+		function enviarusuario() {
+			var user = document.getElementById("cedula_usuario").value;
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='
+					+ user, false);
+			req.send(null);
+			var usuario = null;
+			if (req.status == 200)
+				usuario = JSON.parse(req.responseText);
+			console.log(usuario);
+
+			var icono2 = document.getElementById("checkusuario");
+			if (usuario.toString() != "") {
+
+				document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
+
+				icono2.classList.replace("text-danger", "text-success");
+				icono2.classList.replace("fa-times", "fa-check");
+
+			} else {
+				document.getElementById("nombre_usuario").value = "";
+				icono2.classList.replace("text-success", "text-danger");
+				icono2.classList.replace("fa-check", "fa-times");
 			}
 		}
-
 		//--------------------     Buscar Producto1		----------------------------- //		
 
 		function bucarproducto() {
@@ -507,37 +578,6 @@
 			total5 = total5.toFixed(1);
 			document.getElementById("totalconiva").value = total5;
 
-			var req = new XMLHttpRequest();
-			var coincidencia = false;
-			req
-					.open('GET', 'http://localhost:8080/consultarconsecutivo',
-							false);
-			req.send(null);
-			var consecutivo = null;
-			if (req.status == 200)
-				consecutivo = JSON.parse(req.responseText);
-			console.log(JSON.parse(req.responseText));
-
-			var element = document.getElementById("errorproducto");
-			element.classList.add("visually-hidden");
-			var element2 = document.getElementById("correcto");
-			element2.classList.remove("visually-hidden");
-			console.log(consecutivo.toString());
-
-			if (consecutivo.toString() != "") {
-				document.getElementById("consec").value = consecutivo[0].codigo_venta;
-				var element = document.getElementById("error");
-				element.classList.add("visually-hidden");
-				var cons = parseInt(document.getElementById("consec").value);
-				cons = cons + 1;
-				document.getElementById("consec").value = cons;
-
-			} else {
-				var element = document.getElementById("error");
-				element.classList.remove("visually-hidden");
-
-			}
-
 		}
 
 		function guardar() {
@@ -558,15 +598,29 @@
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "http://localhost:8080/registrarventa");
 
-			var element = document.getElementById("error");
+			var element = document.getElementById("errorventa");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("correcto");
 			element2.classList.remove("visually-hidden");
 
 			document.getElementById("consec").value = "";
 			document.getElementById("cedula_buscar").value = "";
+			document.getElementById("nombre_cliente").value = "";
 			document.getElementById("cedula_usuario").value = "";
+			document.getElementById("nombre_usuario").value = "";
+			document.getElementById("nombre_producto").value = "";
+			document.getElementById("nombre_producto2").value = "";
+			document.getElementById("nombre_producto3").value = "";
+			document.getElementById("cantidad1").value = "";
+			document.getElementById("cantidad2").value = "";
+			document.getElementById("cantidad3").value = "";
+			document.getElementById("precio1").value = "";
+			document.getElementById("precio2").value = "";
+			document.getElementById("precio3").value = "";
 			document.getElementById("totaliva").value = "";
+			document.getElementById("total1").value = "";
+			document.getElementById("total2").value = "";
+			document.getElementById("total3").value = "";
 			document.getElementById("total4").value = "";
 			document.getElementById("totalconiva").value = "";
 			xhr.send(formData);

@@ -19,7 +19,7 @@
 <link href="clistusuarios.css" rel="stylesheet" type="text/css" />
 
 <script>
-	var baseurl = "http://localhost:8080/listarusuarios";
+var baseurl = "http://localhost:8080/listarusuarios";
 	function loadusuarios() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);
