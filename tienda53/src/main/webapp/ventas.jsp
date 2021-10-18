@@ -18,9 +18,11 @@
 <link href="cventas.css" rel="stylesheet" type="text/css" />
 <script>
 	window.onload = function() {
+		var getUrl = window.location;
+		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 		var req = new XMLHttpRequest();
 		var coincidencia = false;
-		req.open('GET', 'http://localhost:8080/consultarconsecutivo', false);
+		req.open('GET', baseUrl + '/consultarconsecutivo', false);
 		req.send(null);
 		var consecutivo = null;
 		if (req.status == 200)
@@ -295,7 +297,7 @@
 									aria-describedby="inputGroup-sizing-default" id="totalconiva"
 									disabled="disabled"></td>
 							</tr>
-							<tr>
+						<!--  	<tr>
 								<td colspan="6">
 									<button type="button"
 										class="btn btn-success btn-card-enviar2 form"
@@ -304,13 +306,13 @@
 									</button>
 								</td>
 							</tr>
-
+-->
 							<tr>
 								<td colspan="6">
 									<button type="button"
-										class="btn btn-success btn-card-enviar2 form"
+										class="btn btn-primary btn-card-enviar2 form"
 										onclick="guardar()">
-										<i class="fas fa-search"></i> Guardar
+										<i class="fas fa-cart-arrow-down"></i> Guardar
 									</button>
 								</td>
 							</tr>
@@ -347,11 +349,13 @@
 	<script>
 		function enviar() {
 
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 			var client = document.getElementById("cedula_buscar").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET',
-					'http://localhost:8080/consultarcliente?cedula_cliente='
+			req.open('GET', baseUrl + 
+					'/consultarcliente?cedula_cliente='
 							+ client, false);
 			req.send(null);
 			var cliente = null;
@@ -378,9 +382,11 @@
 
 		function enviarusuario() {
 			var user = document.getElementById("cedula_usuario").value;
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='
+			req.open('GET', baseUrl +  '/consultarusuario?usuario='
 					+ user, false);
 			req.send(null);
 			var usuario = null;
@@ -405,10 +411,12 @@
 		//--------------------     Buscar Producto1		----------------------------- //		
 
 		function bucarproducto() {
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
 			var pro_bus = document.getElementById("codigo_buscar").value;
-			req.open('GET', 'http://localhost:8080/consultarproducto?code='
+			req.open('GET', baseUrl + '/consultarproducto?code='
 					+ pro_bus, false);
 			req.send(null);
 			var producto = null;
@@ -440,10 +448,12 @@
 		//--------------------     Buscar Producto2		----------------------------- //
 
 		function bucarproducto2() {
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
 			var pro_bus = document.getElementById("codigo_buscar2").value;
-			req.open('GET', 'http://localhost:8080/consultarproducto?code='
+			req.open('GET', baseUrl + '/consultarproducto?code='
 					+ pro_bus, false);
 			req.send(null);
 			var producto = null;
@@ -474,10 +484,12 @@
 		//--------------------     Buscar Producto3		----------------------------- //
 
 		function bucarproducto3() {
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
 			var pro_bus = document.getElementById("codigo_buscar3").value;
-			req.open('GET', 'http://localhost:8080/consultarproducto?code='
+			req.open('GET', baseUrl + '/consultarproducto?code='
 					+ pro_bus, false);
 			req.send(null);
 			var producto = null;
@@ -582,6 +594,9 @@
 
 		function guardar() {
 
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
+			
 			var formData = new FormData();
 			formData.append("codigo_venta",
 					document.getElementById("consec").value);
@@ -596,7 +611,7 @@
 			formData.append("valor_venta", document
 					.getElementById("totalconiva").value);
 			var xhr = new XMLHttpRequest();
-			xhr.open("POST", "http://localhost:8080/registrarventa");
+			xhr.open("POST", baseUrl + "/registrarventa");
 
 			var element = document.getElementById("errorventa");
 			element.classList.add("visually-hidden");

@@ -19,10 +19,12 @@
 <link href="clistusuarios.css" rel="stylesheet" type="text/css" />
 
 <script>
-	var baseurl = "http://localhost:8080/listarproveedores";
+	//var baseurl = "http://localhost:8080/listarproveedores";
 	function loadproveedores() {
+		var getUrl = window.location;
+		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl, true);
+		xmlhttp.open("GET", baseUrl + "/listarproveedores", true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var proveedores = JSON.parse(xmlhttp.responseText);
@@ -68,23 +70,23 @@
 
 	<div class="card-buttons">
 		<button type="button" class="btn btn-success btn-card"
-			onclick="window.location.href='/insertarproveedor.jsp'">
+			onclick="window.location.href='insertarproveedor.jsp'">
 			<i class="fas fa-plus-circle"></i> Agregar proveedor
 		</button>
 		<button type="button" class="btn btn-danger btn-card"
-			onclick="window.location.href='/eliminarproveedor.jsp'">
+			onclick="window.location.href='eliminarproveedor.jsp'">
 			<i class="fas fa-trash"></i> Eliminar proveedor
 		</button>
 		<button type="button" class="btn btn-warning btn-card"
-			onclick="window.location.href='/actualizarproveedor.jsp'">
+			onclick="window.location.href='actualizarproveedor.jsp'">
 			<i class="fas fa-pen-alt"></i> Actualizar proveedor
 		</button>
 		<button type="button" class="btn btn-primary btn-card"
-			onclick="window.location.href='/buscarproveedor.jsp'">
+			onclick="window.location.href='buscarproveedor.jsp'">
 			<i class="fas fa-search"></i> Buscar un proveedor
 		</button>
 		<button type="button" class="btn btn-info btn-card"
-			onclick="window.location.href='/listaproveedores.jsp'">
+			onclick="window.location.href='listaproveedores.jsp'">
 			<i class="fas fa-clipboard-list"></i> Listar todos los proveedores
 		</button>
 	</div>

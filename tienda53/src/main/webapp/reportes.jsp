@@ -15,7 +15,9 @@
 	rel="stylesheet"
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
-<link href="/../css/cssreportes.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/../css/cssreportes.css" rel="stylesheet" type="text/css" /> -->
+<link href="css/cssreportes.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -109,15 +111,19 @@
 
 	<script>
 		function loadusuarios() {
+			
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
+			
 			var element = document.getElementById("tablacliente");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("tablausuario");
 			element2.classList.remove("visually-hidden");
 			var element3 = document.getElementById("tablareportes");
 			element3.classList.add("visually-hidden");
-			var baseurl = "http://localhost:8080/listarusuarios";
+			//var baseurl = "http://localhost:8080/listarusuarios";
 			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", baseurl, true);
+			xmlhttp.open("GET", baseUrl + "/listarusuarios", true);
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 					var usuarios = JSON.parse(xmlhttp.responseText);
@@ -140,15 +146,19 @@
 		}
 
 		function loadclientes() {
+			
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
+			
 			var element = document.getElementById("tablausuario");
 			element.classList.add("visually-hidden");
 			var element3 = document.getElementById("tablareportes");
 			element3.classList.add("visually-hidden");
 			var element2 = document.getElementById("tablacliente");
 			element2.classList.remove("visually-hidden");
-			var baseurl = "http://localhost:8080/listarclientes";
+			//var baseurl = "http://localhost:8080/listarclientes";
 			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", baseurl, true);
+			xmlhttp.open("GET", baseUrl + "/listarclientes", true);
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 					var clientes = JSON.parse(xmlhttp.responseText);
@@ -171,15 +181,19 @@
 		}
 
 		function loadreportes() {
+			
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
+			
 			var element = document.getElementById("tablausuario");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("tablacliente");
 			element2.classList.add("visually-hidden");
 			var element3 = document.getElementById("tablareportes");
 			element3.classList.remove("visually-hidden");
-			var baseurl = "http://localhost:8080/listarreportes";
+			//var baseurl = "http://localhost:8080/listarreportes";
 			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", baseurl, true);
+			xmlhttp.open("GET", baseUrl + "/listarreportes", true);
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 					var reportes = JSON.parse(xmlhttp.responseText);

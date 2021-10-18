@@ -61,23 +61,23 @@
 	<div class="card-buttons">
 
 		<button type="button" class="btn btn-success btn-card-footer"
-			onclick="window.location.href='/insertarproveedor.jsp'">
+			onclick="window.location.href='insertarproveedor.jsp'">
 			<i class="fas fa-plus-circle"></i> Agregar Proveedor
 		</button>
 		<button type="button" class="btn btn-danger btn-card-footer"
-			onclick="window.location.href='/eliminarproveedor.jsp'">
+			onclick="window.location.href='eliminarproveedor.jsp'">
 			<i class="fas fa-trash"></i> Eliminar Proveedor
 		</button>
 		<button type="button" class="btn btn-warning btn-card-footer"
-			onclick="window.location.href='/actualizarproveedor.jsp'">
+			onclick="window.location.href='actualizarproveedor.jsp'">
 			<i class="fas fa-pen-alt"></i> Actualizar Proveedor
 		</button>
 		<button type="button" class="btn btn-primary btn-card-footer"
-			onclick="window.location.href='/buscarproveedor.jsp'">
+			onclick="window.location.href='buscarproveedor.jsp'">
 			<i class="fas fa-search"></i> Buscar un Proveedor
 		</button>
 		<button type="button" class="btn btn-info btn-card-footer"
-			onclick="window.location.href='/listaproveedores.jsp'">
+			onclick="window.location.href='listaproveedores.jsp'">
 			<i class="fas fa-clipboard-list"></i> Listar todos los proveedores
 		</button>
 	</div>
@@ -92,9 +92,11 @@
 	<script>
 		function eliminar() {
 			var y = document.getElementById("nit_proveedor").value;
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarproveedores', false);
+			req.open('GET', baseUrl + '/listarproveedores', false);
 			req.send(null);
 			var proveedor = null;
 			if (req.status == 200)
@@ -116,8 +118,8 @@
 				var nit = document.getElementById("nit_proveedor").value;
 
 				var xhr = new XMLHttpRequest();
-				xhr.open("DELETE",
-						"http://localhost:8080/eliminarproveedores?nit_proveedor="
+				xhr.open("DELETE",  baseUrl + 
+						"/eliminarproveedores?nit_proveedor="
 								+ nit);
 
 				var element = document.getElementById("error");

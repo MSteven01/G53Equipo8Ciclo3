@@ -69,23 +69,23 @@
 	<div class="card-buttons">
 
 		<button type="button" class="btn btn-success btn-card-footer"
-			onclick="window.location.href='/insertarproveedor.jsp'">
+			onclick="window.location.href='insertarproveedor.jsp'">
 			<i class="fas fa-plus-circle"></i> Agregar proveedor
 		</button>
 		<button type="button" class="btn btn-danger btn-card-footer"
-			onclick="window.location.href='/eliminarproveedor.jsp'">
+			onclick="window.location.href='eliminarproveedor.jsp'">
 			<i class="fas fa-trash"></i> Eliminar proveedor
 		</button>
 		<button type="button" class="btn btn-warning btn-card-footer"
-			onclick="window.location.href='/actualizarproveedor.jsp'">
+			onclick="window.location.href='actualizarproveedor.jsp'">
 			<i class="fas fa-pen-alt"></i> Actualizar proveedor
 		</button>
 		<button type="button" class="btn btn-primary btn-card-footer"
-			onclick="window.location.href='/buscarproveedor.jsp'">
+			onclick="window.location.href='buscarproveedor.jsp'">
 			<i class="fas fa-search"></i> Buscar un proveedor
 		</button>
 		<button type="button" class="btn btn-info btn-card-footer"
-			onclick="window.location.href='/listaproveedores.jsp'">
+			onclick="window.location.href='listaproveedores.jsp'">
 			<i class="fas fa-clipboard-list"></i> Listar todos los proveedores
 		</button>
 	</div>
@@ -100,9 +100,11 @@
 	<script>
 		function enviar() {
 			var y = document.getElementById("nit_proveedor").value;
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarproveedores', false);
+			req.open('GET', baseUrl + '/listarproveedores', false);
 			req.send(null);
 			var proveedores = null;
 			if (req.status == 200)
@@ -133,7 +135,7 @@
 				formData.append("ciudad_proveedor", document
 						.getElementById("ciudad_proveedor").value);
 				var xhr = new XMLHttpRequest();
-				xhr.open("POST", "http://localhost:8080/registrarproveedores");
+				xhr.open("POST", baseUrl + "/registrarproveedores");
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");

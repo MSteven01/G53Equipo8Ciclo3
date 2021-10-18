@@ -67,21 +67,21 @@
 <script>
 function comparar() {
 	
+	//Local
 	//var x = document.getElementById("inputuser").value;
 	//var y = document.getElementById("inputpass").value;
-	//var getUrl = window.location;
-	//var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
+	//var baseurl = "http://localhost:8080/listarusuarios";
 	//var xmlhttp = new XMLHttpRequest();
-	//xmlhttp.open("GET", baseUrl + "/listarusuarios", true);
+	//xmlhttp.open("GET", baseurl, true);
 	
-	
-	
+	//AWS
 	
 	var x = document.getElementById("inputuser").value;
 	var y = document.getElementById("inputpass").value;
-	var baseurl = "http://localhost:8080/listarusuarios";
+	var getUrl = window.location;
+	var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", baseurl, true);
+	xmlhttp.open("GET", baseUrl + "/listarusuarios", true);
 	xmlhttp.onreadystatechange = function() {
 		//si se obtiene un 200 (Conexion correcta)
 		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {

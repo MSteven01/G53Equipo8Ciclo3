@@ -60,23 +60,23 @@
 	<div class="card-buttons">
 
 		<button type="button" class="btn btn-success btn-card-footer"
-			onclick="window.location.href='/insertarclientes.jsp'">
+			onclick="window.location.href='insertarclientes.jsp'">
 			<i class="fas fa-plus-circle"></i> Agregar cliente
 		</button>
 		<button type="button" class="btn btn-danger btn-card-footer"
-			onclick="window.location.href='/eliminarcliente.jsp'">
+			onclick="window.location.href='eliminarcliente.jsp'">
 			<i class="fas fa-trash"></i> Eliminar cliente
 		</button>
 		<button type="button" class="btn btn-warning btn-card-footer"
-			onclick="window.location.href='/actualizarcliente.jsp'">
+			onclick="window.location.href='actualizarcliente.jsp'">
 			<i class="fas fa-pen-alt"></i> Actualizar cliente
 		</button>
 		<button type="button" class="btn btn-primary btn-card-footer"
-			onclick="window.location.href='/buscarcliente.jsp'">
+			onclick="window.location.href='buscarcliente.jsp'">
 			<i class="fas fa-search"></i> Buscar un cliente
 		</button>
 		<button type="button" class="btn btn-info btn-card-footer"
-			onclick="window.location.href='/listaclientes.jsp'">
+			onclick="window.location.href='listaclientes.jsp'">
 			<i class="fas fa-clipboard-list"></i> Listar todos los clientes
 		</button>
 	</div>
@@ -90,9 +90,11 @@
 	<script>
 		function eliminar() {
 			var y = document.getElementById("cedula_cliente").value;
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarclientes', false);
+			req.open('GET', baseUrl + '/listarclientes', false);
 			req.send(null);
 			var clientes = null;
 			if (req.status == 200)
@@ -114,8 +116,7 @@
 				var cedula = document.getElementById("cedula_cliente").value;
 
 				var xhr = new XMLHttpRequest();
-				xhr.open("DELETE",
-						"http://localhost:8080/eliminarclientes?cedula_cliente="
+				xhr.open("DELETE",	baseUrl + "/eliminarclientes?cedula_cliente="
 								+ cedula);
 
 				var element = document.getElementById("error");
