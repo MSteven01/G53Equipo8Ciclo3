@@ -593,10 +593,8 @@
 		}
 
 		function guardar() {
-
 			var getUrl = window.location;
 			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
-			
 			var formData = new FormData();
 			formData.append("codigo_venta",
 					document.getElementById("consec").value);
@@ -612,33 +610,40 @@
 					.getElementById("totalconiva").value);
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", baseUrl + "/registrarventa");
+			xhr.send(formData);
+			
+			setTimeout(
+					function() {
+						for (i = 1; i < 4; i++) {
+							var actual = document.getElementById(("total"+i.toString()).value);
+							if (actual == 0) {
+								continue;
+							} else {
+								var formData2 = new FormData();
+								//formData2.append("codigo_detalle_venta", );
+								formData2.append("cantidad_producto",document.getElementById("cantidad"+ i.toString()).value);
+								formData2.append("codigo_producto",document.getElementById("codigo_buscar"+ i.toString()).value);
+								formData2.append("codigo_venta",document.getElementById("consec").value);
+								formData2.append("valor_total", document.getElementById("total"+ i.toString()).value);
+								formData2.append("valor_venta",document.getElementById("total4").value);
+								formData2.append("valoriva",document.getElementById("totalconiva").value);
+								var xhr2 = new XMLHttpRequest();
+								xhr2.open("POST",  baseUrl + "/registrardetalleventa");
+								xhr2.send(formData2);
+							}
+
+						}
+						var element = document.getElementById("error");
+						element.classList.add("visually-hidden");
+						var element2 = document.getElementById("correcto");
+						element2.classList.remove("visually-hidden");
+					}, 1500);
+			
 
 			var element = document.getElementById("errorventa");
 			element.classList.add("visually-hidden");
 			var element2 = document.getElementById("correcto");
 			element2.classList.remove("visually-hidden");
-
-			document.getElementById("consec").value = "";
-			document.getElementById("cedula_buscar").value = "";
-			document.getElementById("nombre_cliente").value = "";
-			document.getElementById("cedula_usuario").value = "";
-			document.getElementById("nombre_usuario").value = "";
-			document.getElementById("nombre_producto").value = "";
-			document.getElementById("nombre_producto2").value = "";
-			document.getElementById("nombre_producto3").value = "";
-			document.getElementById("cantidad1").value = "";
-			document.getElementById("cantidad2").value = "";
-			document.getElementById("cantidad3").value = "";
-			document.getElementById("precio1").value = "";
-			document.getElementById("precio2").value = "";
-			document.getElementById("precio3").value = "";
-			document.getElementById("totaliva").value = "";
-			document.getElementById("total1").value = "";
-			document.getElementById("total2").value = "";
-			document.getElementById("total3").value = "";
-			document.getElementById("total4").value = "";
-			document.getElementById("totalconiva").value = "";
-			xhr.send(formData);
 
 		}
 	</script>
