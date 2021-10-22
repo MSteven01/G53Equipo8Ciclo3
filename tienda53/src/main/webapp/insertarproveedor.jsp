@@ -67,30 +67,39 @@
 
 
 	<div class="card-buttons">
-
-		<button type="button" class="btn btn-success btn-card-footer"
-			onclick="window.location.href='insertarproveedor.jsp'">
-			<i class="fas fa-plus-circle"></i> Agregar proveedor
-		</button>
-		<button type="button" class="btn btn-danger btn-card-footer"
-			onclick="window.location.href='eliminarproveedor.jsp'">
-			<i class="fas fa-trash"></i> Eliminar proveedor
-		</button>
-		<button type="button" class="btn btn-warning btn-card-footer"
-			onclick="window.location.href='actualizarproveedor.jsp'">
-			<i class="fas fa-pen-alt"></i> Actualizar proveedor
-		</button>
-		<button type="button" class="btn btn-primary btn-card-footer"
-			onclick="window.location.href='buscarproveedor.jsp'">
-			<i class="fas fa-search"></i> Buscar un proveedor
-		</button>
-		<button type="button" class="btn btn-info btn-card-footer"
-			onclick="window.location.href='listaproveedores.jsp'">
-			<i class="fas fa-clipboard-list"></i> Listar todos los proveedores
-		</button>
+		<div class="row">
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-success btn-card"
+					onclick="window.location.href='insertarproveedor.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar proveedor
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-danger btn-card"
+					onclick="window.location.href='eliminarproveedor.jsp'">
+					<i class="fas fa-trash"></i> Eliminar proveedor
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-warning btn-card"
+					onclick="window.location.href='actualizarproveedor.jsp'">
+					<i class="fas fa-pen-alt"></i> Actualizar proveedor
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-primary btn-card"
+					onclick="window.location.href='buscarproveedor.jsp'">
+					<i class="fas fa-search"></i> Buscar un proveedor
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-info btn-card"
+					onclick="window.location.href='listaproveedores.jsp'">
+					<i class="fas fa-clipboard-list"></i> Listar todos los proveedores
+				</button>
+			</div>
+		</div>
 	</div>
-
-
 	<script src="js/scripts.js"></script>
 
 	<script>
@@ -101,7 +110,8 @@
 		function enviar() {
 			var y = document.getElementById("nit_proveedor").value;
 			var getUrl = window.location;
-			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"
+					+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
 			req.open('GET', baseUrl + '/listarproveedores', false);

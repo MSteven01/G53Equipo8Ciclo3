@@ -80,27 +80,38 @@
 
 
 	<div class="card-buttons">
-
-		<button type="button" class="btn btn-success btn-card-footer"
-			onclick="window.location.href='insertarclientes.jsp'">
-			<i class="fas fa-plus-circle"></i> Agregar cliente
-		</button>
-		<button type="button" class="btn btn-danger btn-card-footer"
-			onclick="window.location.href='eliminarcliente.jsp'">
-			<i class="fas fa-trash"></i> Eliminar cliente
-		</button>
-		<button type="button" class="btn btn-warning btn-card-footer"
-			onclick="window.location.href='actualizarcliente.jsp'">
-			<i class="fas fa-pen-alt"></i> Actualizar cliente
-		</button>
-		<button type="button" class="btn btn-primary btn-card-footer"
-			onclick="window.location.href='buscarcliente.jsp'">
-			<i class="fas fa-search"></i> Buscar un cliente
-		</button>
-		<button type="button" class="btn btn-info btn-card-footer"
-			onclick="window.location.href='listaclientes.jsp'">
-			<i class="fas fa-clipboard-list"></i> Listar todos los clientes
-		</button>
+		<div class="row">
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-success btn-card"
+					onclick="window.location.href='insertarclientes.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar cliente
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-danger btn-card"
+					onclick="window.location.href='eliminarcliente.jsp'">
+					<i class="fas fa-trash"></i> Eliminar cliente
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-warning btn-card"
+					onclick="window.location.href='actualizarcliente.jsp'">
+					<i class="fas fa-pen-alt"></i> Actualizar cliente
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-primary btn-card"
+					onclick="window.location.href='buscarcliente.jsp'">
+					<i class="fas fa-search"></i> Buscar un cliente
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-info btn-card"
+					onclick="window.location.href='listaclientes.jsp'">
+					<i class="fas fa-clipboard-list"></i> Listar todos los cliente
+				</button>
+			</div>
+		</div>
 	</div>
 
 	<script src="js/scripts.js"></script>
@@ -113,14 +124,14 @@
 	<script>
 		function enviar() {
 
-			
 			var getUrl = window.location;
-			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"
+					+ getUrl.pathname.split('/')[1];
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
 			var ced_bus = document.getElementById("cedula_buscar").value;
 			req.open('GET', baseUrl + '/consultarcliente?cedula_cliente='
-							+ ced_bus, false);
+					+ ced_bus, false);
 			req.send(null);
 			var cliente = null;
 			if (req.status == 200)
@@ -158,7 +169,8 @@
 
 		function actualizar() {
 			var getUrl = window.location;
-			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"+ getUrl.pathname.split('/')[1];
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/"
+					+ getUrl.pathname.split('/')[1];
 			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;

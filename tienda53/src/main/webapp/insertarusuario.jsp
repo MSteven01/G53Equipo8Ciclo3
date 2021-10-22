@@ -63,27 +63,38 @@
 
 
 	<div class="card-buttons">
-
-		<button type="button" class="btn btn-success btn-card-footer"
-			onclick="window.location.href='insertarusuario.jsp'">
-			<i class="fas fa-plus-circle"></i> Agregar usuario
-		</button>
-		<button type="button" class="btn btn-danger btn-card-footer"
-			onclick="window.location.href='eliminarusuario.jsp'">
-			<i class="fas fa-trash"></i> Eliminar usuario
-		</button>
-		<button type="button" class="btn btn-warning btn-card-footer"
-			onclick="window.location.href='actualizarusuario.jsp'">
-			<i class="fas fa-pen-alt"></i> Actualizar usuario
-		</button>
-		<button type="button" class="btn btn-primary btn-card-footer"
-			onclick="window.location.href='buscarusuario.jsp'">
-			<i class="fas fa-search"></i> Buscar un usuario
-		</button>
-		<button type="button" class="btn btn-info btn-card-footer"
-			onclick="window.location.href='listausuarios.jsp'">
-			<i class="fas fa-clipboard-list"></i> Listar todos los usuarios
-		</button>
+		<div class="row">
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-success btn-card-footer"
+					onclick="window.location.href='insertarusuario.jsp'">
+					<i class="fas fa-plus-circle"></i> Agregar usuario
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-danger btn-card-footer"
+					onclick="window.location.href='eliminarusuario.jsp'">
+					<i class="fas fa-trash"></i> Eliminar usuario
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-warning btn-card-footer"
+					onclick="window.location.href='actualizarusuario.jsp'">
+					<i class="fas fa-pen-alt"></i> Actualizar usuario
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-primary btn-card-footer"
+					onclick="window.location.href='buscarusuario.jsp'">
+					<i class="fas fa-search"></i> Buscar un usuario
+				</button>
+			</div>
+			<div class="box-cliente col-xl-2 col-lg-2 col-md-12 col-sm-12">
+				<button type="button" class="btn btn-info btn-card-footer"
+					onclick="window.location.href='listausuarios.jsp'">
+					<i class="fas fa-clipboard-list"></i> Listar todos los usuarios
+				</button>
+			</div>
+		</div>
 	</div>
 	
 	<script src="js/scripts.js"></script>
@@ -139,7 +150,7 @@
 						document.getElementById("user").value);
 			
 				var xhr = new XMLHttpRequest();
-				xhr.open("POST", baseUrl + "/listarusuarios",);
+				xhr.open("POST", baseUrl + "/registrarusuario",);
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
